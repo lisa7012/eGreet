@@ -20,10 +20,7 @@ const config: Config = {
         'black': "#333333",
       },
       backgroundImage: {
-        'landing-pattern': "url('/landing_pattern.svg'), linear-gradient(135deg, rgba(244,108,131,1) 0%, rgba(221,65,91,1) 35%, rgba(228,134,89,1) 100%)",
-      },
-      backgroundSize: {
-        '100%': 'auto 100%',
+        'gradient': "linear-gradient(135deg, rgba(244,108,131,1) 0%, rgba(221,65,91,1) 32%, rgba(228,134,89,1) 80%)",
       },
       fontFamily: {
         poppins: 'var(--font-poppins)'
@@ -33,11 +30,15 @@ const config: Config = {
       },
       margin: {
         '72px': '4.5rem',
+        '50px': '3.125rem',
       },
       width:{
         '300px': '18.75rem',
         '785px': '49.063rem',
-      }
+      },
+      zIndex: {
+        '1': '1',
+      },
     },
   },
   plugins: [],
