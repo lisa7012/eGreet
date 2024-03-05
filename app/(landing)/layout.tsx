@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
+
+// components
+import Footer from '../components/Footer';
+import Logo from '../components/Logo';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,7 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <main className="relative z-0 mx-0 my-auto flex h-screen flex-col bg-gradient py-0 max-sm:gap-2.5">
+          <Logo src="/eGreet_logo_gray.svg" alt="eGreet Gray Logo" />
+          {children}
+          <Footer textColor="text-white" textOpacity="opacity-70" />
+        </main>
+      </body>
     </html>
   );
 }
