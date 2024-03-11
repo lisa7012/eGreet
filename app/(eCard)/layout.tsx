@@ -28,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Logo src="/eGreet_logo_color.svg" alt="eGreet Logo" />
-        {children}
-        <Footer textColor="text-black" />
+        <main className="mx-0 my-auto flex flex-col bg-white-ivory">
+          <Logo src="/eGreet_logo_color.svg" alt="eGreet Logo" />
+          {children}
+          <Footer textColor="text-black" />
+        </main>
       </body>
     </html>
   );

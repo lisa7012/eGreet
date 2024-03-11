@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       {/* Origami pattern in the background */}
-      <section className="fixed -z-1 grid h-screen w-screen grid-cols-12 grid-rows-12 pt-0">
+      <section className="fixed -z-1 grid h-screen w-screen grid-cols-12 grid-rows-12 overflow-hidden pt-0">
         <Image
           src="/pattern-g1.svg"
           alt="pattern group 1"
@@ -36,7 +36,7 @@ const Home = () => {
         />
       </section>
       <div className=" my-auto flex justify-center gap-content-cl px-content-cl max-lg:flex-wrap-reverse">
-        <div className="flex w-785px flex-col gap-7 self-center max-lg:gap-intro-cl">
+        <div className="flex w-[785px] flex-col gap-7 self-center max-lg:gap-intro-cl">
           <p className="self-center text-3xl font-normal text-white max-xl:text-intro-cl max-lg:text-center max-lg:leading-intro-cl">
             Need to send a card, but don&apos;t have time to run to the store?
             At eGreet, you may send free e-cards to your friends, family,
@@ -46,7 +46,7 @@ const Home = () => {
           {/* TODO: Make a button component with general style that can be changed */}
           <Link
             href="/photogallery"
-            className="w-fit text-nowrap rounded-md bg-mustard px-24 py-3 text-center text-lg font-medium hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-xl:px-btn-x-cl max-xl:py-btn-y-cl max-xl:text-btn-cl max-xl:leading-snug max-lg:self-center"
+            className="btn rounded-md bg-mustard px-24 py-3 text-lg hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-xl:px-btn-x-cl max-xl:py-btn-y-cl max-xl:text-btn-cl max-xl:leading-snug max-lg:self-center"
           >
             get started!
           </Link>
