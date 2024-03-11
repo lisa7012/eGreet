@@ -28,8 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        {/* TODO: fix when on other devices -> broke on laptop T_T */}
-        <main className="relative z-0 mx-0 my-auto flex h-screen flex-col bg-gradient py-0 max-sm:gap-2.5">
+        {/* TODO: fix when on other devices -> broke on laptop T_T -> removed h-screen for now*/}
+        <main className="relative z-0 mx-0 my-auto flex flex-col bg-gradient py-0 max-sm:gap-2.5">
           <Logo src="/eGreet_logo_gray.svg" alt="eGreet Gray Logo" />
           {children}
           <Footer textColor="text-white" textOpacity="opacity-70" />

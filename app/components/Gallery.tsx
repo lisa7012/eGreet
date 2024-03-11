@@ -38,18 +38,15 @@ const Gallery = ({ photosResults }: GalleryProps) => {
               className="cursor-pointer object-cover"
             />
           </div>
-          <div className="relative flex flex-row justify-between max-mobile:flex-col max-mobile:self-center">
-            {/* <div className="relative flex flex-row justify-between"> */}
+          <div className="relative flex flex-row justify-between max-mobile:flex-col max-mobile:gap-1 max-mobile:self-center">
             <p className="text-caption-cl italic text-black">
               photo by: {photo.photographer}
             </p>
-            {/* TODO: maybe make a button component, to check again */}
-            {/* TODO: fix mobile centered button */}
+            {/* TODO: check and group styles to remove clutter */}
             {photoSelected === photo.id && (
               <Link
                 href={`/creation/${photo.id}`}
-                className="btn absolute right-0 rounded-next-btn-cl bg-tangerine px-next-x-cl py-next-y-cl text-next-btn-cl leading-tight text-white max-mobile:inset-x-0 max-mobile:mx-auto max-mobile:my-0"
-                // className="btn absolute right-0 rounded-next-btn-cl bg-tangerine px-next-x-cl py-next-y-cl text-next-btn-cl leading-tight text-white"
+                className="btn absolute right-0 rounded-next-btn-cl bg-tangerine px-next-x-cl py-next-y-cl text-next-btn-cl leading-tight text-white max-mobile:static max-mobile:self-center"
               >
                 next
               </Link>

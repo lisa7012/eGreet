@@ -43,7 +43,7 @@ const Home = () => {
             co-workers, anyone! Simply browse for a photo you want from the
             photo gallery, customize your message, and send away!
           </p>
-          {/* TODO: Make a button component with general style that can be changed */}
+          {/* TODO: Check styles and group whichever thats needs it to reduce clutter */}
           <Link
             href="/photogallery"
             className="btn rounded-md bg-mustard px-24 py-3 text-lg hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-xl:px-btn-x-cl max-xl:py-btn-y-cl max-xl:text-btn-cl max-xl:leading-snug max-lg:self-center"
