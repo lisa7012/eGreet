@@ -35,6 +35,8 @@ const config: Config = {
         'footer-cl': 'clamp(0.625rem, 0.3660rem + 1.1050vw, 1.25rem)',
         'caption-cl': 'clamp(0.5rem, 0.4697rem + 0.1294vw, 0.625rem)',
         'next-btn-cl': 'clamp(0.625rem, 0.5340rem + 0.3883vw, 1rem)',
+        'search-btn-cl': 'clamp(0.813rem, 0.7676rem + 0.1937vw, 1rem)',
+        'search-bar-cl': 'clamp(0.688rem, 0.6577rem + 0.1294vw, 0.813rem)',
       },
       lineHeight: {
         'intro-cl': 'clamp(1.313rem, 0.7716rem + 2.3100vw, 2.25rem)',
@@ -46,6 +48,7 @@ const config: Config = {
         'gallery-cl': 'clamp(3rem, -0.2464rem + 13.8511vw, 16.375rem)',
         'next-x-cl': 'clamp(0.938rem, 0.6802rem + 1.0998vw, 2rem)',
         'next-y-cl': 'clamp(0.188rem, 0.1426rem + 0.1937vw, 0.375rem)',
+        'search-x-cl': 'clamp(1.313rem, 0.9946rem + 1.3587vw, 2.625rem)',
       },
       margin: {
         'logo-y-cl': 'clamp(1.875rem, 1.3694rem + 2.1572vw, 2.75rem)',
@@ -55,16 +58,19 @@ const config: Config = {
         'logo-cl': 'clamp(4.438rem, 3.1941rem + 5.3074vw, 9.563rem)',
         'btn-cl': 'clamp(15.625rem, 14.3301rem + 5.5249vw, 18.75rem)',
         'example-cl': 'clamp(18.75rem, 12.2496rem + 27.7350vw, 30rem)',
+        'search-cl': 'clamp(15.625rem, 10.2852rem + 22.7832vw, 37.625rem)',
       },
       height: {
         'logo-cl': 'clamp(2.063rem, 1.2438rem + 3.4951vw, 5.438rem)',
         'photo-cl': 'clamp(8.125rem, 5.2427rem + 12.2977vw, 20rem)',
+        'search-cl': 'clamp(1.875rem, 1.7233rem + 0.6472vw, 2.5rem)',
       },
       gap: {
         'content-cl': 'clamp(1.875rem, 1.2250rem + 2.7735vw, 3rem)',
         'intro-cl': 'clamp(1.25rem, 1.0428rem + 0.8840vw, 1.75rem)',
         'gallery-x-cl': 'clamp(1.25rem, 0.9466rem + 1.2945vw, 2.5rem)',
         'gallery-y-cl': 'clamp(0.938rem, 0.5589rem + 1.6176vw, 2.5rem)',
+        'search-cl': 'clamp(1.875rem, 1.5716rem + 1.2945vw, 3.125rem)',
       },
       zIndex: {
         '1': '1',

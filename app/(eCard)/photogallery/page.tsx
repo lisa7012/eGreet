@@ -12,7 +12,7 @@ const PhotoGallery = async () => {
 
   return (
     <>
-      <div className="flex flex-col gap-[50px]">
+      <div className="gap-search-cl flex flex-col max-md:mt-6">
         <SearchBar />
         <Gallery photosResults={photosResults} />
       </div>

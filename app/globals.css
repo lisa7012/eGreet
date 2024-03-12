@@ -7,7 +7,7 @@
 }
 
 .input {
-  @apply rounded-md border-[1px] border-[#DCDBD9] bg-[#FAF8F5] text-xs shadow-inner;
+  @apply rounded-md border-[1px] border-[#DCDBD9] bg-[#FAF8F5] text-search-bar-cl shadow-inner;
 }
 
 /* Scroll Styling */
