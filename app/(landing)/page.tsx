@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       {/* Origami pattern in the background */}
-      <section className="fixed -z-1 grid h-screen w-screen grid-cols-12 grid-rows-12 overflow-hidden pt-0">
+      <section className="fixed -z-1 grid h-screen w-screen grid-cols-12 grid-rows-12 pt-0">
         <Image
           src="/pattern-g1.svg"
           alt="pattern group 1"

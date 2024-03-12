@@ -53,6 +53,7 @@ const config: Config = {
       margin: {
         'logo-y-cl': 'clamp(1.875rem, 1.3694rem + 2.1572vw, 2.75rem)',
         'logo-x-cl': 'clamp(1.875rem, 1.1527rem + 3.0817vw, 3.125rem)',
+        'search-cl': 'clamp(1.875rem, 1.5716rem + 1.2945vw, 3.125rem)',
       },
       width: {
         'logo-cl': 'clamp(4.438rem, 3.1941rem + 5.3074vw, 9.563rem)',

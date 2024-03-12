@@ -13,8 +13,10 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
-  title: 'eGreet',
+  title: 'Photo Gallery',
   icons: {
     icon: '/eGreet_icon.svg',
   },
@@ -26,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-        <main className="mx-0 my-auto flex flex-col bg-white-ivory">
+    <html lang="en" className="m-0 h-full">
+      <body className={`${poppins.className} m-0 h-full bg-white-ivory`}>
+        <main className="mx-0 my-auto flex h-full flex-col gap-search-cl">
           <Logo src="/eGreet_logo_color.svg" alt="eGreet Logo" />
           {children}
           <Footer textColor="text-black" />

@@ -11,13 +11,16 @@ type GalleryProps = {
 const Gallery = ({ photosResults }: GalleryProps) => {
   const [photoSelected, setPhotoSelected] = useState<number | null>(null);
 
-  // TODO: check what this looks like in the browser after the search bar is created
-  // Check if there are any photos
   if (!photosResults)
-    return <h2 className="m-4 text-xl font-bold">No Photos Found.</h2>;
+    return (
+      <div className="my-auto flex flex-col justify-center">
+        <h2 className="self-center text-center text-xl font-medium">
+          Oops! No photos were found with that search term. Please try again.
+        </h2>
+      </div>
+    );
 
   return (
-    // TODO: recalculate gap to take into account of caption and button
     <section className="grid-cols-gallery my-auto grid grid-cols-3 justify-center gap-x-gallery-x-cl gap-y-gallery-y-cl px-gallery-cl max-md:grid-cols-2">
       {photosResults.photos.map((photo) => (
         <div key={photo.id} className="flex flex-col gap-2">

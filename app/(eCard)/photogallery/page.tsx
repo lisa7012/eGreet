@@ -1,19 +1,19 @@
-import { getCuratedPhotos } from '../../lib/api';
+import { fetchPhotos } from '../../lib/api';
 import type { PhotosResults } from '../../schemas/Photos';
 
 // components
 import Gallery from '../../components/Gallery';
-import SearchBar from '@/app/components/SearchBar';
+import SearchBar from '../../components/SearchBar';
 
 const PhotoGallery = async () => {
   const url = 'https://api.pexels.com/v1/curated';
 
-  const photosResults: PhotosResults | undefined = await getCuratedPhotos(url);
+  const photosResults: PhotosResults | undefined = await fetchPhotos(url);
 
   return (
     <>
-      <div className="gap-search-cl flex flex-col max-md:mt-6">
-        <SearchBar />
+      <SearchBar />
+      <div className="my-auto flex flex-col justify-center">
         <Gallery photosResults={photosResults} />
       </div>
     </>

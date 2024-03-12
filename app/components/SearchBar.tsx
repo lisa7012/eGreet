@@ -15,7 +15,7 @@ const SearchBar = () => {
   };
 
   return (
-    <form className="flex flex-row justify-center">
+    <form className="flex flex-row justify-center" onSubmit={handleSubmit}>
       <div className="flex flex-col gap-2 max-mobile:gap-1">
         <div className="flex flex-row gap-5">
           <input
@@ -25,7 +25,10 @@ const SearchBar = () => {
             className="input h-search-cl w-search-cl bg-[url('../public/search_icon.svg')] bg-[10px_50%] bg-no-repeat pl-8 focus-visible:outline-strawberry-400 max-xl:bg-[3%_50%] max-md:pl-7"
             placeholder="search"
           />
-          <button className="btn h-search-cl px-search-x-cl text-search-btn-cl rounded-md bg-strawberry-600 text-white max-md:hidden">
+          <button
+            type="submit"
+            className="btn h-search-cl rounded-md bg-strawberry-600 px-search-x-cl text-search-btn-cl text-white max-md:hidden"
+          >
             search
           </button>
         </div>

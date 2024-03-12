@@ -2,8 +2,7 @@ import type { PhotosResults } from '../schemas/Photos';
 import { CompletePhotosSchema } from '../schemas/Photos';
 import env from './env';
 
-// TODO: change function name to fetchPhotos later
-export const getCuratedPhotos = async (
+export const fetchPhotos = async (
   url: string,
 ): Promise<PhotosResults | undefined> => {
   try {
