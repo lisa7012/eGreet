@@ -32,7 +32,7 @@ const SearchBar = () => {
             search
           </button>
         </div>
-        <p className="text-caption-cl italic text-black max-mobile:self-center">
+        <p className="text-caption-cl italic text-black">
           photos provided by{' '}
           <Link
             href="https://www.pexels.com"
