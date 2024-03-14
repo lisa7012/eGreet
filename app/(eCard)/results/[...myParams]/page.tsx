@@ -5,6 +5,7 @@ import type { PhotosResults } from '../../../schemas/Photos';
 // components
 import Gallery from '../../../components/Gallery';
 import SearchBar from '../../../components/SearchBar';
+import Pagination from '../../../components/Pagination';
 
 type ResultsProps = {
   params: {
@@ -55,6 +56,7 @@ const SearchResults = async ({ params: { myParams } }: ResultsProps) => {
           <Gallery photosResults={photosResults} />
         </div>
       )}
+      <Pagination {...paginationProps} />
     </>
   );
 };

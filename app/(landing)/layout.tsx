@@ -30,7 +30,6 @@ export default function RootLayout({
       <body
         className={`${poppins.className} m-0 flex h-full flex-col bg-gradient bg-fixed `}
       >
-        {/* TODO: to check if it works on laptop, etc. -> STILL BROKEN ARGH -> fixed now to recheck*/}
         <main className="relative z-0 mx-0 my-auto flex h-full flex-col py-0 max-sm:gap-2.5">
           <Logo src="/eGreet_logo_gray.svg" alt="eGreet Gray Logo" />
           {children}
