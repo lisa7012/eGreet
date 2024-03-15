@@ -8,7 +8,6 @@ import SearchBar from '../../components/SearchBar';
 import Pagination from '../../components/Pagination';
 
 const PhotoGallery = async () => {
-  // const url = 'https://api.pexels.com/v1/curated?per_page=80';
   const url = 'https://api.pexels.com/v1/curated';
 
   const photosResults: PhotosResults | undefined = await fetchPhotos(url);

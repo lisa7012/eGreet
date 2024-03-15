@@ -34,7 +34,6 @@ const SearchResults = async ({ params: { myParams } }: ResultsProps) => {
   } else {
     url = `https://api.pexels.com/v1/search?query=${searchQuery}&page=${page}`;
   }
-  // const url = `https://api.pexels.com/v1/search?query=${searchQuery}`;
 
   const photosResults: PhotosResults | undefined = await fetchPhotos(url);
 

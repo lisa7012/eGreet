@@ -6,9 +6,8 @@ type FooterProps = {
 };
 
 const Footer = ({ textColor, textOpacity }: FooterProps) => {
-  // TODO: remove padding or make it auto to add gap to main page? maybe padding bottom, but pt-auto
   const style =
-    `py-10 flex justify-center text-xl font-normal text-center max-mobile:leading-tight max-xl:text-footer-cl ` +
+    `pt-auto pb-10 flex justify-center text-xl font-normal text-center max-mobile:leading-tight max-xl:text-footer-cl ` +
     textColor +
     ` ` +
     textOpacity;
