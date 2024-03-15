@@ -7,13 +7,15 @@ import Gallery from '../../../components/Gallery';
 import SearchBar from '../../../components/SearchBar';
 import Pagination from '../../../components/Pagination';
 
-type ResultsProps = {
+type SearchResultsProps = {
   params: {
     myParams: (string | undefined)[];
   };
 };
 
-export const generateMetadata = ({ params: { myParams } }: ResultsProps) => {
+export const generateMetadata = ({
+  params: { myParams },
+}: SearchResultsProps) => {
   const searchQuery = myParams?.[0] ?? 'curated';
   const page = myParams?.[1] ?? '1';
 
@@ -22,7 +24,7 @@ export const generateMetadata = ({ params: { myParams } }: ResultsProps) => {
   };
 };
 
-const SearchResults = async ({ params: { myParams } }: ResultsProps) => {
+const SearchResults = async ({ params: { myParams } }: SearchResultsProps) => {
   const searchQuery = myParams?.[0] ?? 'curated';
   const page = myParams?.[1] ?? '1';
 

@@ -7,6 +7,12 @@ import Gallery from '../../components/Gallery';
 import SearchBar from '../../components/SearchBar';
 import Pagination from '../../components/Pagination';
 
+export const generateMetadata = () => {
+  return {
+    title: 'Photo Gallery',
+  };
+};
+
 const PhotoGallery = async () => {
   const url = 'https://api.pexels.com/v1/curated';
 

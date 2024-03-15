@@ -47,7 +47,7 @@ const config: Config = {
         'content-cl': 'clamp(1.875rem, 1.1527rem + 3.0817vw, 3.125rem)',
         'gallery-cl': 'clamp(3rem, -0.2464rem + 13.8511vw, 16.375rem)',
         'next-x-cl': 'clamp(0.938rem, 0.6802rem + 1.0998vw, 2rem)',
-        'next-y-cl': 'clamp(0.188rem, 0.1426rem + 0.1937vw, 0.375rem)',
+        'next-y-cl': 'clamp(0.125rem, 0.0643rem + 0.2589vw, 0.375rem)',
         'search-x-cl': 'clamp(1.313rem, 0.9946rem + 1.3587vw, 2.625rem)',
       },
       margin: {
@@ -72,6 +72,7 @@ const config: Config = {
         'gallery-x-cl': 'clamp(1.25rem, 0.9466rem + 1.2945vw, 2.5rem)',
         'gallery-y-cl': 'clamp(0.938rem, 0.5589rem + 1.6176vw, 2.5rem)',
         'search-cl': 'clamp(1.875rem, 1.5716rem + 1.2945vw, 3.125rem)',
+        'photo-cl': 'clamp(0.125rem, 0.0340rem + 0.3883vw, 0.5rem)',
       },
       zIndex: {
         '1': '1',

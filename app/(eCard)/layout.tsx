@@ -16,7 +16,7 @@ const poppins = Poppins({
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Photo Gallery',
+  title: 'eGreet',
   icons: {
     icon: '/eGreet_icon.svg',
   },

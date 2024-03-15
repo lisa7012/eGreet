@@ -14,7 +14,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
   return (
     <section className="grid-cols-gallery my-auto grid grid-cols-3 justify-center gap-x-gallery-x-cl gap-y-gallery-y-cl px-gallery-cl max-md:grid-cols-2">
       {photosResults.photos.map((photo) => (
-        <div key={photo.id} className="flex flex-col gap-2">
+        <div key={photo.id} className="gap-photo-cl flex flex-col">
           <div
             className={`group relative h-photo-cl overflow-hidden rounded-[20px] ${photoSelected === photo.id ? ' border-photo-cl border-tangerine' : ''}`}
             onClick={() => {
@@ -31,7 +31,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
               className="cursor-pointer object-cover"
             />
           </div>
-          <div className="relative flex flex-row justify-between max-mobile:flex-col max-mobile:gap-1">
+          <div className="relative flex flex-row justify-between max-mobile:flex-col max-mobile:gap-2">
             <p className="text-caption-cl italic text-black">
               photo by: {photo.photographer}
             </p>
@@ -39,7 +39,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
             {photoSelected === photo.id && (
               <Link
                 href={`/creation/${photo.id}`}
-                className="btn absolute right-0 rounded-next-btn-cl bg-tangerine px-next-x-cl py-next-y-cl text-next-btn-cl leading-tight text-white max-mobile:static"
+                className="btn absolute right-0 rounded-next-btn-cl bg-tangerine px-next-x-cl py-next-y-cl text-next-btn-cl leading-tight text-white max-mobile:static max-mobile:w-full"
               >
                 next
               </Link>
