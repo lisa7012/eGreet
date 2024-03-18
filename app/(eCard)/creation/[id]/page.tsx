@@ -1,9 +1,13 @@
-import { fetchPhotos } from '../../../lib/api';
-import type { PhotosResults } from '../../../schemas/Photos';
+import { fetchASinglePhoto } from '../../../lib/api';
+import type { Photo } from '../../../schemas/Photos';
+
+// components
+import Card from '../../../components/Card';
+import Form from '../../../components/Form';
 
 type CardCreationProps = {
   params: {
-    photoId: string;
+    id: number;
   };
 };
 
@@ -13,12 +17,12 @@ export const generateMetadata = () => {
   };
 };
 
-const CardCreation = async ({ params: { photoId } }: CardCreationProps) => {
-  const url = `https://api.pexels.com/v1/photos/${photoId}`;
+const CardCreation = async ({ params: { id } }: CardCreationProps) => {
+  const url = `https://api.pexels.com/v1/photos/${id}`;
 
-  const photosResult: PhotosResults | undefined = await fetchPhotos(url);
+  const photoResult: Photo | undefined = await fetchASinglePhoto(url);
 
-  if (!photosResult) {
+  if (!photoResult) {
     return (
       <div className="my-auto flex flex-col justify-center">
         <h2 className="self-center text-center text-xl font-medium">
@@ -31,8 +35,9 @@ const CardCreation = async ({ params: { photoId } }: CardCreationProps) => {
   }
 
   return (
-    <div>
-      <div></div>
+    <div className="flex justify-center gap-40">
+      <Card photoResult={photoResult} />
+      <Form />
     </div>
   );
 };

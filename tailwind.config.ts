@@ -36,7 +36,7 @@ const config: Config = {
         'caption-cl': 'clamp(0.5rem, 0.4697rem + 0.1294vw, 0.625rem)',
         'next-btn-cl': 'clamp(0.625rem, 0.5340rem + 0.3883vw, 1rem)',
         'search-btn-cl': 'clamp(0.813rem, 0.7676rem + 0.1937vw, 1rem)',
-        'search-bar-cl': 'clamp(0.688rem, 0.6577rem + 0.1294vw, 0.813rem)',
+        'input-cl': 'clamp(0.688rem, 0.6577rem + 0.1294vw, 0.813rem)',
       },
       lineHeight: {
         'intro-cl': 'clamp(1.313rem, 0.7716rem + 2.3100vw, 2.25rem)',
@@ -64,7 +64,7 @@ const config: Config = {
       height: {
         'logo-cl': 'clamp(2.063rem, 1.2438rem + 3.4951vw, 5.438rem)',
         'photo-cl': 'clamp(8.125rem, 5.2427rem + 12.2977vw, 20rem)',
-        'search-cl': 'clamp(1.875rem, 1.7233rem + 0.6472vw, 2.5rem)',
+        'input-cl': 'clamp(1.875rem, 1.7233rem + 0.6472vw, 2.5rem)',
       },
       gap: {
         'content-cl': 'clamp(1.875rem, 1.2250rem + 2.7735vw, 3rem)',

@@ -6,8 +6,16 @@
   @apply w-fit text-nowrap text-center font-medium;
 }
 
+.caption {
+  @apply text-caption-cl italic text-black;
+}
+
 .input {
-  @apply rounded-md border-[1px] border-[#DCDBD9] bg-[#FAF8F5] text-search-bar-cl shadow-inner;
+  @apply rounded-md border-[1px] border-[#DCDBD9] bg-[#FAF8F5] text-input-cl shadow-inner focus-visible:outline-strawberry-400;
+}
+
+.input-field {
+  @apply flex flex-col gap-0.5
 }
 
 /* Scroll Styling */

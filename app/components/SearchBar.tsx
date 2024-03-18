@@ -10,7 +10,7 @@ const SearchBar = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push(`/results/${searchQuery}`);
+    if (searchQuery) router.push(`/results/${searchQuery}`);
     setSearchQuery('');
   };
 
@@ -22,17 +22,17 @@ const SearchBar = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="input h-search-cl w-search-cl bg-[url('../public/search_icon.svg')] bg-[10px_50%] bg-no-repeat pl-8 focus-visible:outline-strawberry-400 max-xl:bg-[3%_50%] max-md:pl-7"
+            className="input h-input-cl w-search-cl bg-[url('../public/search_icon.svg')] bg-[10px_50%] bg-no-repeat pl-8 max-xl:bg-[3%_50%] max-md:pl-7"
             placeholder="search"
           />
           <button
             type="submit"
-            className="btn h-search-cl rounded-md bg-strawberry-600 px-search-x-cl text-search-btn-cl text-white max-md:hidden"
+            className="btn h-input-cl rounded-md bg-strawberry-600 px-search-x-cl text-search-btn-cl text-white max-md:hidden"
           >
             search
           </button>
         </div>
-        <p className="text-caption-cl italic text-black">
+        <p className="caption">
           photos provided by{' '}
           <Link
             href="https://www.pexels.com"

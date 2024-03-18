@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 type PaginationProps = {
@@ -26,9 +27,10 @@ const Pagination = ({
   const nextPageArea = nextPage ? (
     <Link
       href={`/results/${searchQuery}/${nextPage}`}
-      className={!prevPage ? 'mx-auto' : ''}
+      className={!prevPage ? 'mx-auto flex justify-between' : ''}
     >
-      {!prevPage ? 'more' : null} &gt;
+      {!prevPage ? 'more\xa0' : null}
+      {page !== '1' && pageNums.length > 1 ? <p>&gt;&gt;</p> : <p>&gt;</p>}
     </Link>
   ) : null;
 
@@ -38,18 +40,21 @@ const Pagination = ({
         href={`/results/${searchQuery}/${prevPage}`}
         className={!nextPage ? 'mx-auto' : ''}
       >
-        &lt;{!nextPage ? 'back' : null}
+        &lt; {!nextPage ? 'back' : null}
       </Link>
       {pageNums.map((num, i) =>
         page && num === parseInt(page) ? (
-          <span key={i} className="text-strawberry-600">
+          <span
+            key={i}
+            className="rounded-full bg-strawberry-600 px-[9px] py-0.5 font-bold text-white"
+          >
             {num}
           </span>
         ) : (
           <Link
             key={i}
             href={`/results/${searchQuery}/${num}`}
-            className="underline"
+            className="font-normal"
           >
             {num}
           </Link>
@@ -59,7 +64,7 @@ const Pagination = ({
   ) : null;
 
   return (
-    <div className="mx-auto flex w-60 flex-row items-center justify-between font-bold">
+    <div className="mx-auto flex w-60 flex-row items-center justify-between font-bold text-[#797979]">
       {prevPageArea}
       {nextPageArea}
     </div>

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { PhotosResults } from '../schemas/Photos';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 type GalleryProps = {
   photosResults: PhotosResults;
@@ -14,7 +14,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
   return (
     <section className="grid-cols-gallery my-auto grid grid-cols-3 justify-center gap-x-gallery-x-cl gap-y-gallery-y-cl px-gallery-cl max-md:grid-cols-2">
       {photosResults.photos.map((photo) => (
-        <div key={photo.id} className="gap-photo-cl flex flex-col">
+        <div key={photo.id} className="flex flex-col gap-photo-cl">
           <div
             className={`group relative h-photo-cl overflow-hidden rounded-[20px] ${photoSelected === photo.id ? ' border-photo-cl border-tangerine' : ''}`}
             onClick={() => {
@@ -32,9 +32,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
             />
           </div>
           <div className="relative flex flex-row justify-between max-mobile:flex-col max-mobile:gap-2">
-            <p className="text-caption-cl italic text-black">
-              photo by: {photo.photographer}
-            </p>
+            <p className="caption">photo by: {photo.photographer}</p>
             {/* TODO: check and group styles to remove clutter */}
             {photoSelected === photo.id && (
               <Link
