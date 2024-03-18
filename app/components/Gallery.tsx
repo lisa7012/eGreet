@@ -37,7 +37,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
             {photoSelected === photo.id && (
               <Link
                 href={`/creation/${photo.id}`}
-                className="btn absolute right-0 rounded-next-btn-cl bg-tangerine px-next-x-cl py-next-y-cl text-next-btn-cl leading-tight text-white max-mobile:static max-mobile:w-full"
+                className="btn w-next-btn-cl h-next-btn-cl absolute right-0 rounded-next-btn-cl bg-tangerine text-next-btn-cl leading-tight text-white max-mobile:static max-mobile:w-full"
               >
                 next
               </Link>

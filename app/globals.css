@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-  @apply w-fit text-nowrap text-center font-medium;
+  @apply inline-flex items-center justify-center text-nowrap text-center font-medium;
 }
 
 .caption {
@@ -15,7 +15,7 @@
 }
 
 .input-field {
-  @apply flex flex-col gap-0.5
+  @apply flex flex-col gap-0.5;
 }
 
 /* Scroll Styling */

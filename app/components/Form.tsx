@@ -1,4 +1,6 @@
+'use client';
 const Form = () => {
+  // most likely have to create zod schema to validate input
   return (
     <form className="flex w-[600px] flex-col gap-5">
       <div className="flex gap-7">
@@ -96,6 +98,14 @@ const Form = () => {
           id="bgcolor"
           placeholder="Please pick a color"
         />
+      </div>
+      <div className="mt-[30px] flex w-full gap-7">
+        <button className="btn bg-light-gray h-[50px] w-full rounded-md text-black">
+          select another photo
+        </button>
+        <button className="btn h-[50px] w-full rounded-md bg-strawberry-600 text-white">
+          send
+        </button>
       </div>
     </form>
   );

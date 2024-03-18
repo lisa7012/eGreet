@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 
+// TODO: check for any values that aren't used and remove them
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -18,6 +19,7 @@ const config: Config = {
         'white-ivory': '#FFFFFB',
         white: '#FFFFFF',
         black: '#333333',
+        'light-gray': '#DCDBD9',
       },
       screens: {
         mobile: '480px',
@@ -57,14 +59,18 @@ const config: Config = {
       },
       width: {
         'logo-cl': 'clamp(4.438rem, 3.1941rem + 5.3074vw, 9.563rem)',
-        'btn-cl': 'clamp(15.625rem, 14.3301rem + 5.5249vw, 18.75rem)',
+        'landing-btn-cl': 'clamp(15.625rem, 14.3301rem + 5.5249vw, 18.75rem)',
         'example-cl': 'clamp(18.75rem, 12.2496rem + 27.7350vw, 30rem)',
         'search-cl': 'clamp(15.625rem, 10.2852rem + 22.7832vw, 37.625rem)',
+        'search-btn-cl': 'clamp(6.25rem, 4.5833rem + 3.4722vw, 8.75rem)',
+        'next-btn-cl': 'clamp(3.406rem, 2.4580rem + 3.1600vw, 6.25rem)',
       },
       height: {
         'logo-cl': 'clamp(2.063rem, 1.2438rem + 3.4951vw, 5.438rem)',
+        'landing-btn-cl': 'clamp(2.188rem, 1.9606rem + 0.9704vw, 3.125rem)',
         'photo-cl': 'clamp(8.125rem, 5.2427rem + 12.2977vw, 20rem)',
         'input-cl': 'clamp(1.875rem, 1.7233rem + 0.6472vw, 2.5rem)',
+        'next-btn-cl': 'clamp(1.094rem, 0.8337rem + 0.8678vw, 1.875rem)',
       },
       gap: {
         'content-cl': 'clamp(1.875rem, 1.2250rem + 2.7735vw, 3rem)',

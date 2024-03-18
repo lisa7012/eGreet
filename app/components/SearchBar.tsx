@@ -27,7 +27,7 @@ const SearchBar = () => {
           />
           <button
             type="submit"
-            className="btn h-input-cl rounded-md bg-strawberry-600 px-search-x-cl text-search-btn-cl text-white max-md:hidden"
+            className="btn w-search-btn-cl h-input-cl rounded-md bg-strawberry-600 text-search-btn-cl text-white max-md:hidden"
           >
             search
           </button>
