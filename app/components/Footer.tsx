@@ -14,7 +14,7 @@ const Footer = ({ textColor, textOpacity }: FooterProps) => {
   return (
     <footer className={style}>
       <p>
-        ©2024 | designed by&nbsp;
+        ©2024 | designed and developed by&nbsp;
         <Link
           href="https://www.linkedin.com/in/vict%C3%B3ria-marins-4700b01ba?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BHXdYazhwSkC4nyDPNx3pOg%3D%3D"
           target="_blank"
@@ -22,7 +22,7 @@ const Footer = ({ textColor, textOpacity }: FooterProps) => {
         >
           Victoria Marins
         </Link>
-        &nbsp;& developed by&nbsp;
+        &nbsp;& &nbsp;
         <Link
           href="https://lisa7012.github.io/portfolio_v2/"
           target="_blank"

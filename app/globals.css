@@ -18,6 +18,10 @@
   @apply flex flex-col gap-0.5;
 }
 
+.color-picker .react-colorful {
+  position: absolute;
+}
+
 /* Scroll Styling */
 /* ::-webkit-scrollbar {
   width: 9px;

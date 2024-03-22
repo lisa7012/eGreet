@@ -1,6 +1,9 @@
 'use client';
+
+import ColorPicker from './ColorPicker';
+
 const Form = () => {
-  // most likely have to create zod schema to validate input
+  // TODO: create zod schema to validate input
   return (
     <form className="flex w-[600px] flex-col gap-5">
       <div className="flex gap-7">
@@ -70,40 +73,31 @@ const Form = () => {
           <label htmlFor="font" className="text-lg font-normal">
             Font
           </label>
-          <select id="font" className="input h-input-cl px-2.5">
-            <option value="" disabled selected hidden>
-              Please pick a font
-            </option>
+          <select
+            id="font"
+            className="input h-input-cl cursor-pointer appearance-none bg-[url('../public/arrow_down.svg')] bg-clip-padding bg-[97%_50%] bg-no-repeat px-2.5"
+          >
+            <option value="">Poppins</option>
           </select>
         </div>
         <div className="input-field w-full">
           <label htmlFor="fontcolor" className="text-lg font-normal">
             Font Color
           </label>
-          <input
-            type="color"
-            className="input h-input-cl w-full px-2.5"
-            id="fontcolor"
-            placeholder="Please pick a color"
-          />
+          <ColorPicker defaultColor="#333333" />
         </div>
       </div>
       <div className="input-field w-[285px]">
         <label htmlFor="bgcolor" className="text-lg font-normal">
           Background Color
         </label>
-        <input
-          type="color"
-          className="input h-input-cl w-full px-2.5"
-          id="bgcolor"
-          placeholder="Please pick a color"
-        />
+        <ColorPicker defaultColor="#ffffff" />
       </div>
       <div className="mt-[30px] flex w-full gap-7">
-        <button className="btn bg-light-gray h-[50px] w-full rounded-md text-black">
+        <button className="btn h-input-cl w-full rounded-md bg-light-gray text-black">
           select another photo
         </button>
-        <button className="btn h-[50px] w-full rounded-md bg-strawberry-600 text-white">
+        <button className="btn h-input-cl w-full rounded-md bg-strawberry-600 text-white">
           send
         </button>
       </div>

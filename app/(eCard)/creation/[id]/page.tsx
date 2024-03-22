@@ -35,7 +35,7 @@ const CardCreation = async ({ params: { id } }: CardCreationProps) => {
   }
 
   return (
-    <div className="flex justify-center gap-40">
+    <div className="relative flex justify-center gap-40">
       <Card photoResult={photoResult} />
       <Form />
     </div>
