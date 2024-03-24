@@ -9,19 +9,21 @@ type CardProps = {
 
 const Card = ({ photoResult }: CardProps) => {
   return (
-    <div className=" h-[765px] w-[555px] overflow-hidden rounded-[20px] border-[3px] border-[#999997]">
-      <div className="relative h-[375px]">
+    <div className=" my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#999997]">
+      <div className="relative h-card-pic-cl">
         <Image
           src={photoResult.src.large}
           alt={photoResult.alt}
           fill={true}
-          sizes="(min-width: 1400px) 549px, (min-width: 900px) calc(41.25vw - 20px), (min-width: 760px) calc(82.5vw - 385px), calc(96.67vw - 475px)"
+          sizes="(min-width: 2100px) 549px, calc(16.01vw + 216px)"
           className="object-cover"
         />
       </div>
-      <div className="flex h-[390px] flex-col bg-white">
-        <p className="caption self-end">photo by: {photoResult.photographer}</p>
-        <p className="my-auto text-center">Happy Birthday</p>
+      <div className="flex h-card-msg-cl flex-col bg-white">
+        <p className="caption self-end pr-1 pt-1">
+          photo by: {photoResult.photographer}
+        </p>
+        <p className="my-auto text-center text-card-msg-cl">Happy Birthday</p>
       </div>
     </div>
   );

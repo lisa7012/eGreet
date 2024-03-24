@@ -4,6 +4,7 @@ import type { Photo } from '../../../schemas/Photos';
 // components
 import Card from '../../../components/Card';
 import Form from '../../../components/Form';
+import Image from 'next/image';
 
 type CardCreationProps = {
   params: {
@@ -35,7 +36,22 @@ const CardCreation = async ({ params: { id } }: CardCreationProps) => {
   }
 
   return (
-    <div className="relative flex justify-center gap-40">
+    <div className="flex justify-center gap-creation-cl max-md:flex-wrap">
+      <div className="hidden flex-nowrap items-center justify-center text-info-cl max-md:flex">
+        <p className="font-medium">
+          Please scroll down and fill in the information
+        </p>
+        {/* //TODO: consider making a photocontainer since it's kinda used a lot */}
+        <div className="flex h-info-arrow-cl w-info-arrow-cl">
+          <Image
+            src="/ei_arrow-down.svg"
+            width={35}
+            height={35}
+            alt="arrow-down"
+            className="self-center"
+          />
+        </div>
+      </div>
       <Card photoResult={photoResult} />
       <Form />
     </div>

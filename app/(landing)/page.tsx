@@ -46,7 +46,7 @@ const Home = () => {
           {/* TODO: Check styles and group whichever thats needs it to reduce clutter */}
           <Link
             href="/photogallery"
-            className="btn w-landing-btn-cl h-landing-btn-cl rounded-md bg-mustard text-lg hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-xl:text-btn-cl"
+            className="btn h-landing-btn-cl w-landing-btn-cl rounded-md bg-mustard text-btn-cl hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-lg:self-center"
           >
             get started!
           </Link>

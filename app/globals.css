@@ -18,8 +18,21 @@
   @apply flex flex-col gap-0.5;
 }
 
+/* // Color picker styling */
 .color-picker .react-colorful {
-  position: absolute;
+  @apply absolute w-react-colorful-cl h-react-colorful-cl;
+}
+
+.color-picker .react-colorful__hue {
+  @apply h-cp-hue-cl
+}
+
+.color-picker .react-colorful__saturation-pointer {
+  @apply w-cp-pointer-cl h-cp-pointer-cl;
+}
+
+.color-picker .react-colorful__hue-pointer {
+  @apply w-cp-pointer-cl h-cp-pointer-cl;
 }
 
 /* Scroll Styling */

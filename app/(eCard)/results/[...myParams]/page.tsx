@@ -18,9 +18,14 @@ export const generateMetadata = ({
 }: SearchResultsProps) => {
   const searchQuery = myParams?.[0] ?? 'curated';
   const page = myParams?.[1] ?? '1';
+  let decodedQuery;
+
+  decodedQuery = searchQuery.includes('%20')
+    ? decodeURIComponent(searchQuery)
+    : searchQuery;
 
   return {
-    title: `${searchQuery} - Page ${page}`,
+    title: `${decodedQuery} - Page ${page}`,
   };
 };
 

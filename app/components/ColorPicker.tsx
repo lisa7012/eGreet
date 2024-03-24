@@ -21,14 +21,14 @@ const ColorPicker = ({ defaultColor }: ColorPickerProps) => {
 
   return (
     <div className="color-picker relative" ref={ref}>
-      <div className="input flex h-input-cl w-full gap-2 px-2.5">
+      <div className="input w-sm-input-cl gap-color-p-cl flex h-input-cl px-input-cl">
         <button
           type="button"
-          className="my-auto h-[20px] w-[20px]"
+          className="h-color-p-cl w-color-p-cl my-auto"
           style={{ backgroundColor: color }}
           onClick={handleColorPickerClick}
         ></button>
-        <div className="my-auto">
+        <div className="my-auto flex w-[80%] flex-nowrap">
           <p className="inline-block">#</p>
           <HexColorInput
             color={color}
