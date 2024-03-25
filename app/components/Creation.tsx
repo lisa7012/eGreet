@@ -9,7 +9,7 @@ type CardCreationProps = {
   photoResult: Photo;
 };
 
-const CardCreation = ({ photoResult }: CardCreationProps) => {
+const Creation = ({ photoResult }: CardCreationProps) => {
   const [fontStyle, setFontStyle] = useState('poppins');
   const [fontColor, setFontColor] = useState('#333333');
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
@@ -22,4 +22,4 @@ const CardCreation = ({ photoResult }: CardCreationProps) => {
   );
 };
 
-export default CardCreation;
+export default Creation;

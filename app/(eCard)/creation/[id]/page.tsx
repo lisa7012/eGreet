@@ -36,12 +36,12 @@ const CardCreation = async ({ params: { id } }: CardCreationProps) => {
   }
 
   return (
-    <div className="flex justify-center gap-creation-cl max-md:flex-wrap">
-      <div className="hidden flex-nowrap items-center justify-center text-info-cl max-md:flex">
+    <div className="my-auto flex justify-center gap-creation-cl max-md:flex-wrap">
+      {/* <div className="hidden flex-nowrap items-center justify-center text-info-cl max-md:flex">
         <p className="font-medium">
           Please scroll down and fill in the information
         </p>
-        {/* //TODO: consider making a photocontainer since it's kinda used a lot */}
+        //TODO: consider making a photocontainer since it's kinda used a lot
         <div className="flex h-info-arrow-cl w-info-arrow-cl">
           <Image
             src="/ei_arrow-down.svg"
@@ -51,7 +51,7 @@ const CardCreation = async ({ params: { id } }: CardCreationProps) => {
             className="self-center"
           />
         </div>
-      </div>
+      </div> */}
       <Card photoResult={photoResult} />
       <Form />
     </div>

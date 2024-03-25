@@ -82,6 +82,7 @@ const config: Config = {
         'cp-pointer-cl': 'clamp(1.125rem, 0.9733rem + 0.6472vw, 1.75rem)',
         'info-arrow-cl': 'clamp(1.563rem, 0.9666rem + 2.5445vw, 2.188rem)',
         'sent-icon-cl': 'clamp(5.438rem, 3.9060rem + 6.5367vw, 11.75rem)',
+        'sent-btns-cl': 'clamp(16.875rem, 16.6473rem + 0.9714vw, 17.813rem)',
       },
       height: {
         'logo-cl': 'clamp(2.063rem, 1.2438rem + 3.4951vw, 5.438rem)',

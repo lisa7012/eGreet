@@ -22,7 +22,7 @@ const Footer = ({ textColor, textOpacity }: FooterProps) => {
         >
           Victoria Marins
         </Link>
-        &nbsp;& &nbsp;
+        &nbsp;&&nbsp;
         <Link
           href="https://lisa7012.github.io/portfolio_v2/"
           target="_blank"
