@@ -46,6 +46,7 @@ const config: Config = {
         'label-cl': 'clamp(0.813rem, 0.7373rem + 0.3231vw, 1.125rem)',
         'card-msg-cl': 'clamp(0.813rem, 0.7373rem + 0.3231vw, 1.125rem)',
         'info-cl': 'clamp(0.75rem, 0.5706rem + 0.7654vw, 0.938rem)',
+        'sent-cl': 'clamp(1.125rem, 0.8519rem + 1.1650vw, 2.25rem)',
       },
       lineHeight: {
         'intro-cl': 'clamp(1.313rem, 0.7716rem + 2.3100vw, 2.25rem)',
@@ -80,6 +81,7 @@ const config: Config = {
         'react-colorful-cl': 'clamp(7.813rem, 6.6754rem + 4.8539vw, 12.5rem)',
         'cp-pointer-cl': 'clamp(1.125rem, 0.9733rem + 0.6472vw, 1.75rem)',
         'info-arrow-cl': 'clamp(1.563rem, 0.9666rem + 2.5445vw, 2.188rem)',
+        'sent-icon-cl': 'clamp(5.438rem, 3.9060rem + 6.5367vw, 11.75rem)',
       },
       height: {
         'logo-cl': 'clamp(2.063rem, 1.2438rem + 3.4951vw, 5.438rem)',
@@ -96,6 +98,7 @@ const config: Config = {
         'cp-pointer-cl': 'clamp(1.125rem, 0.9733rem + 0.6472vw, 1.75rem)',
         'cp-hue-cl': 'clamp(1.125rem, 1.0340rem + 0.3883vw, 1.5rem)',
         'info-arrow-cl': 'clamp(1.563rem, 0.9666rem + 2.5445vw, 2.188rem)',
+        'sent-icon-cl': 'clamp(5.438rem, 3.9060rem + 6.5367vw, 11.75rem)',
       },
       gap: {
         'content-cl': 'clamp(1.875rem, 1.2250rem + 2.7735vw, 3rem)',
@@ -109,6 +112,7 @@ const config: Config = {
         'input-field-cl': 'clamp(1.25rem, 1.1286rem + 0.5178vw, 1.75rem)',
         'color-p-cl': 'clamp(0.313rem, 0.2676rem + 0.1937vw, 0.5rem)',
         'creation-btn-cl': 'clamp(1.25rem, 1.1286rem + 0.5178vw, 1.75rem)',
+        'sent-cl': 'clamp(1.875rem, 1.5716rem + 1.2945vw, 3.125rem)',
       },
       zIndex: {
         '1': '1',
