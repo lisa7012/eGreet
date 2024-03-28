@@ -22,12 +22,12 @@ const SearchBar = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="input h-input-cl w-search-cl bg-[url('../public/search_icon.svg')] bg-[10px_50%] bg-no-repeat pl-8 max-xl:bg-[3%_50%] max-md:pl-7"
+            className="input h-input-cl w-search-cl bg-[url('/search_icon.svg')] bg-[10px_50%] bg-no-repeat pl-8 max-xl:bg-[3%_50%] max-md:pl-7"
             placeholder="search"
           />
           <button
             type="submit"
-            className="btn w-search-btn-cl h-input-cl rounded-md bg-strawberry-600 text-search-btn-cl text-white max-md:hidden"
+            className="btn h-input-cl w-search-btn-cl rounded-md bg-strawberry-600 text-search-btn-cl text-white max-md:hidden"
           >
             search
           </button>

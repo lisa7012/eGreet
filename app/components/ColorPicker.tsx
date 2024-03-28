@@ -1,14 +1,15 @@
 'use client';
-import { useState, MouseEvent, useRef } from 'react';
+import { useState, MouseEvent, useRef, Dispatch, SetStateAction } from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
 import { useClickOutside } from 'xooks';
 
 type ColorPickerProps = {
-  defaultColor: string;
+  color: string;
+  setColor: Dispatch<SetStateAction<string>>;
 };
 
-const ColorPicker = ({ defaultColor }: ColorPickerProps) => {
-  const [color, setColor] = useState(defaultColor);
+const ColorPicker = ({ color, setColor }: ColorPickerProps) => {
+  // const [color, setColor] = useState(value);
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
@@ -21,10 +22,10 @@ const ColorPicker = ({ defaultColor }: ColorPickerProps) => {
 
   return (
     <div className="color-picker relative" ref={ref}>
-      <div className="input w-sm-input-cl gap-color-p-cl flex h-input-cl px-input-cl">
+      <div className="input flex h-input-cl w-sm-input-cl gap-color-p-cl px-input-cl">
         <button
           type="button"
-          className="h-color-p-cl w-color-p-cl my-auto"
+          className="my-auto h-color-p-cl w-color-p-cl"
           style={{ backgroundColor: color }}
           onClick={handleColorPickerClick}
         ></button>

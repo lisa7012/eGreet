@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
-export const generateMetadata = () => {
-  return {
-    title: 'Thank you for using eGreet!',
-  };
+export const metadata: Metadata = {
+  title: 'Thank you for using eGreet!',
 };
 
 const CardSent = () => {
@@ -17,12 +16,12 @@ const CardSent = () => {
         Your card has been sent! Thank you for using eGreet!
       </h2>
       <div className="flex justify-center gap-5 max-sm:flex-wrap">
-        <button className="btn w-sent-btns-cl h-input-cl rounded-md bg-light-gray text-btn-cl text-black">
+        <button className="btn h-input-cl w-sent-btns-cl rounded-md bg-light-gray text-btn-cl text-black">
           reuse card
         </button>
         <Link
           href="/photogallery"
-          className="btn w-sent-btns-cl h-input-cl rounded-md bg-strawberry-600 text-btn-cl text-white"
+          className="btn h-input-cl w-sent-btns-cl rounded-md bg-strawberry-600 text-btn-cl text-white"
         >
           send another card
         </Link>

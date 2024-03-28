@@ -29,11 +29,11 @@ const config: Config = {
           'linear-gradient(135deg, rgba(244,108,131,1) 0%, rgba(221,65,91,1) 32%, rgba(228,134,89,1) 80%)',
       },
       fontFamily: {
-        poppins: 'var(--font-poppins)',
-        'indie-flower': 'var(--indie-flower)',
-        'bona-nova': 'var(--bona-nova)',
-        'leckerli-one': 'var(--leckerli-one)',
-        'cherry-bomb-one': 'var(--cherry-bomb-one)',
+        poppins: ['Poppins', 'sans-serif'],
+        'indie-flower': ['Indie Flower', 'cursive'],
+        'bona-nova': ['Bona Nova', 'serif'],
+        'leckerli-one': ['Lerkerli One', 'cursive'],
+        'cherry-bomb-one': ['Cherry Bomb One', 'system-ui'],
       },
       fontSize: {
         'intro-cl': 'clamp(0.875rem, 0.4606rem + 1.7680vw, 1.875rem)',

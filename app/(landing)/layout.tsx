@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import '../globals.css';
-import { fonts } from '../font/font';
 
 // components
 import Footer from '../components/Footer';
@@ -20,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="m-0 h-full">
-      <body
-        className={`${fonts.poppins.className} m-0 flex h-full flex-col bg-gradient bg-fixed`}
-      >
+      <body className="m-0 flex h-full flex-col bg-gradient bg-fixed font-poppins">
         <main className="relative z-0 mx-0 my-auto flex h-full flex-col py-0 max-sm:gap-2.5">
           <Logo src="/eGreet_logo_gray.svg" alt="eGreet Gray Logo" />
           {children}

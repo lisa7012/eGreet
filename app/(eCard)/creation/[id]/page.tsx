@@ -1,10 +1,11 @@
 import { fetchASinglePhoto } from '../../../lib/api';
 import type { Photo } from '../../../schemas/Photos';
+import type { Metadata } from 'next';
 
 // components
 import Card from '../../../components/Card';
 import Form from '../../../components/Form';
-import Image from 'next/image';
+import Creation from '@/app/components/Creation';
 
 type CardCreationProps = {
   params: {
@@ -12,10 +13,8 @@ type CardCreationProps = {
   };
 };
 
-export const generateMetadata = () => {
-  return {
-    title: 'Card Creation',
-  };
+export const metadata: Metadata = {
+  title: 'Card Creation',
 };
 
 const CardCreation = async ({ params: { id } }: CardCreationProps) => {
@@ -37,23 +36,9 @@ const CardCreation = async ({ params: { id } }: CardCreationProps) => {
 
   return (
     <div className="my-auto flex justify-center gap-creation-cl max-md:flex-wrap">
-      {/* <div className="hidden flex-nowrap items-center justify-center text-info-cl max-md:flex">
-        <p className="font-medium">
-          Please scroll down and fill in the information
-        </p>
-        //TODO: consider making a photocontainer since it's kinda used a lot
-        <div className="flex h-info-arrow-cl w-info-arrow-cl">
-          <Image
-            src="/ei_arrow-down.svg"
-            width={35}
-            height={35}
-            alt="arrow-down"
-            className="self-center"
-          />
-        </div>
-      </div> */}
-      <Card photoResult={photoResult} />
-      <Form />
+      {/* <Card photoResult={photoResult} />
+      <Form /> */}
+      <Creation photoResult={photoResult} />
     </div>
   );
 };

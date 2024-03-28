@@ -1,16 +1,15 @@
 import { fetchPhotos } from '../../lib/api';
 import { getPrevNextPages } from '../../lib/getPrevNextPages';
 import type { PhotosResults } from '../../schemas/Photos';
+import type { Metadata } from 'next';
 
 // components
 import Gallery from '../../components/Gallery';
 import SearchBar from '../../components/SearchBar';
 import Pagination from '../../components/Pagination';
 
-export const generateMetadata = () => {
-  return {
-    title: 'Photo Gallery',
-  };
+export const metadata: Metadata = {
+  title: 'Photo Gallery',
 };
 
 const PhotoGallery = async () => {

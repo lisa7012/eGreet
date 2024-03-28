@@ -1,8 +1,29 @@
-'use client';
+// Part of Creation client bundle
 
 import ColorPicker from './ColorPicker';
+import { Dispatch, SetStateAction } from 'react';
 
-const Form = () => {
+type FormProps = {
+  fontStyle: string;
+  fontColor: string;
+  backgroundColor: string;
+  message: string;
+  setFontStyle: Dispatch<SetStateAction<string>>;
+  setFontColor: Dispatch<SetStateAction<string>>;
+  setBackgroundColor: Dispatch<SetStateAction<string>>;
+  setMessage: Dispatch<SetStateAction<string>>;
+};
+
+const Form = ({
+  fontStyle,
+  fontColor,
+  backgroundColor,
+  message,
+  setFontStyle,
+  setFontColor,
+  setBackgroundColor,
+  setMessage,
+}: FormProps) => {
   // TODO: create zod schema to validate input
   return (
     <form className="flex w-form-cl flex-col gap-form-cl">
@@ -60,20 +81,17 @@ const Form = () => {
         <label htmlFor="message" className="text-label-cl font-normal">
           Message*
         </label>
-        {/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        aaaaa */}
         <textarea
           className="input h-txt-area-cl pl-input-cl pt-input-cl"
           id="message"
           placeholder="Please write your message"
           required
-          maxLength={500}
+          minLength={1}
+          maxLength={250}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
-        <p className="caption">maximum characters of 500 characters</p>
+        <p className="caption">maximum characters of 250 characters</p>
       </div>
       <div className="flex gap-input-field-cl">
         <div className="input-field w-sm-input-cl">
@@ -82,27 +100,29 @@ const Form = () => {
           </label>
           <select
             id="font"
-            className="input h-input-cl cursor-pointer appearance-none bg-[url('../public/arrow_down.svg')] bg-clip-padding bg-[97%_50%] bg-no-repeat px-input-cl"
+            className="input h-input-cl cursor-pointer appearance-none bg-[url('/arrow_down.svg')] bg-clip-padding bg-[97%_50%] bg-no-repeat px-input-cl"
+            value={fontStyle}
+            onChange={(e) => setFontStyle(e.target.value)}
           >
-            <option value="">Poppins</option>
-            <option value="">Indie Flower</option>
-            <option value="">Bona Nova</option>
-            <option value="">Leckerli One</option>
-            <option value="">Cherry Bomb One</option>
+            <option value="font-poppins">Poppins</option>
+            <option value="font-indie-flower">Indie Flower</option>
+            <option value="font-bona-nova">Bona Nova</option>
+            <option value="font-leckerli-one">Leckerli One</option>
+            <option value="font-cherry-bomb-one">Cherry Bomb One</option>
           </select>
         </div>
         <div className="input-field w-sm-input-cl">
           <label htmlFor="fontcolor" className="text-label-cl font-normal">
             Font Color
           </label>
-          <ColorPicker defaultColor="#333333" />
+          <ColorPicker color={fontColor} setColor={setFontColor} />
         </div>
       </div>
       <div className="input-field w-sm-input-cl">
         <label htmlFor="bgcolor" className="text-label-cl font-normal">
           Background Color
         </label>
-        <ColorPicker defaultColor="#ffffff" />
+        <ColorPicker color={backgroundColor} setColor={setBackgroundColor} />
       </div>
       <div className="mt-creation-btn-cl flex w-full gap-creation-btn-cl max-md:flex-wrap">
         <button className="btn h-input-cl w-full rounded-md bg-light-gray text-btn-cl text-black">

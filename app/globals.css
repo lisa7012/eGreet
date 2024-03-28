@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=Cherry+Bomb+One&family=Indie+Flower&family=Leckerli+One&family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .btn {
-  @apply inline-flex items-center justify-center text-nowrap text-center font-medium;
+  @apply inline-flex items-center justify-center text-nowrap text-center font-medium shadow-md;
 }
 
 .caption {
