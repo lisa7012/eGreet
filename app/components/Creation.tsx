@@ -5,18 +5,33 @@ import type { Photo } from '../schemas/Photos';
 // components
 import Card from './Card';
 import Form from './Form';
+import { getCustomizationValuesFromSS } from '../lib/utils';
 
 type CardCreationProps = {
   photoResult: Photo;
 };
 
-const Creation = ({ photoResult }: CardCreationProps) => {
-  const [fontStyle, setFontStyle] = useState('font-poppins');
-  const [fontColor, setFontColor] = useState('#333333');
-  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
-  const [message, setMessage] = useState('');
+const initialCustomizationValues = {
+  fontStyle: 'font-poppins',
+  fontColor: '#333333',
+  backgroundColor: '#ffffff',
+  message: '',
+};
 
-  // TODO: --> react-hook-form, zod validation, server action, react email, resend
+const Creation = ({ photoResult }: CardCreationProps) => {
+  let values = getCustomizationValuesFromSS(
+    'userCustomizationValues',
+    initialCustomizationValues,
+  );
+
+  const [fontStyle, setFontStyle] = useState(values.fontStyle);
+  const [fontColor, setFontColor] = useState(values.fontColor);
+  const [backgroundColor, setBackgroundColor] = useState(
+    values.backgroundColor,
+  );
+  const [message, setMessage] = useState(values.message);
+
+  // TODO: --> server action, react email, resend
   const customizationValues = {
     fontStyle,
     fontColor,

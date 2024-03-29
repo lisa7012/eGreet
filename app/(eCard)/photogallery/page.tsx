@@ -1,5 +1,5 @@
 import { fetchPhotos } from '../../lib/api';
-import { getPrevNextPages } from '../../lib/getPrevNextPages';
+import { getPrevNextPages } from '../../lib/utils';
 import type { PhotosResults } from '../../schemas/Photos';
 import type { Metadata } from 'next';
 

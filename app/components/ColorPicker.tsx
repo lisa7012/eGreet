@@ -9,7 +9,6 @@ type ColorPickerProps = {
 };
 
 const ColorPicker = ({ color, setColor }: ColorPickerProps) => {
-  // const [color, setColor] = useState(value);
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 

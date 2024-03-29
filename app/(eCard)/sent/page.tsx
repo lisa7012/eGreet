@@ -21,7 +21,7 @@ const CardSent = () => {
         </button>
         <Link
           href="/photogallery"
-          className="btn h-input-cl w-sent-btns-cl rounded-md bg-strawberry-600 text-btn-cl text-white"
+          className="btn h-input-cl w-sent-btns-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"
         >
           send another card
         </Link>

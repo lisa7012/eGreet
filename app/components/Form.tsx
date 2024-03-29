@@ -1,7 +1,13 @@
 // Part of Creation client bundle
 
 import ColorPicker from './ColorPicker';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
+import useFormPersist from 'react-hook-form-persist';
+import { FormDataSchema, Inputs } from '../schemas/FormData';
+import { setCustomizationValuesToSS } from '../lib/utils';
 
 type FormProps = {
   fontStyle: string;
@@ -14,6 +20,8 @@ type FormProps = {
   setMessage: Dispatch<SetStateAction<string>>;
 };
 
+type registeredFields = 'name' | 'recipientName' | 'email' | 'recipientEmail';
+
 const Form = ({
   fontStyle,
   fontColor,
@@ -24,58 +32,129 @@ const Form = ({
   setBackgroundColor,
   setMessage,
 }: FormProps) => {
-  // TODO: create zod schema to validate input
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    trigger,
+    getValues,
+    formState: { errors, isDirty, isValid },
+  } = useForm<Inputs>({
+    resolver: zodResolver(FormDataSchema),
+    mode: 'all',
+  });
+
+  // persisting user's data when they decide to select another photo
+  useFormPersist('userFormData', {
+    watch,
+    setValue,
+  });
+
+  const router = useRouter();
+
+  const handleOnClick = () => {
+    setCustomizationValuesToSS('userCustomizationValues', {
+      fontStyle: fontStyle,
+      fontColor: fontColor,
+      backgroundColor: backgroundColor,
+      message: message,
+    });
+    router.back();
+  };
+
+  useEffect(() => {
+    // revalidating fields when the user comes back from selecting another photo and they have some fields already populated
+    if (sessionStorage.getItem('userFormData')) {
+      const fieldsToValidate: registeredFields[] = [];
+      const fieldValues = getValues();
+
+      let key: keyof Inputs;
+      for (key in fieldValues) {
+        if (fieldValues[key].length !== 0) {
+          fieldsToValidate.push(key);
+        }
+      }
+
+      if (fieldsToValidate.length > 0) {
+        trigger(fieldsToValidate);
+      }
+    }
+  }, []);
+
+  // WORKING HERE NOWWWWWWWWWWWWWWWWWWWWW
+  const handleOnSubmitForm: SubmitHandler<Inputs> = (data) => console.log(data);
+
   return (
-    <form className="flex w-form-cl flex-col gap-form-cl">
+    <form
+      className="flex w-form-cl flex-col gap-form-cl"
+      onSubmit={handleSubmit(handleOnSubmitForm)}
+    >
       <div className="flex gap-input-field-cl">
-        <div className="input-field w-sm-input-cl">
-          <label htmlFor="name" className="text-label-cl font-normal">
-            Name*
-          </label>
+        <div className="input-field relative w-sm-input-cl">
+          <label className="text-label-cl font-normal">Name*</label>
           <input
             type="text"
             className="input h-input-cl pl-input-cl placeholder-shown:truncate"
-            id="name"
             placeholder="Please enter your name"
             required
+            {...register('name')}
           />
+          {errors.name?.message && (
+            <p className="absolute bottom-[-15px] text-caption-cl text-red-600">
+              {errors.name?.message}
+            </p>
+          )}
         </div>
-        <div className="input-field w-sm-input-cl">
-          <label htmlFor="rname" className="text-label-cl font-normal">
+        <div className="input-field relative w-sm-input-cl">
+          <label className="text-label-cl font-normal">
             Recipient&apos;s Name*
           </label>
           <input
             type="text"
             className="input h-input-cl pl-input-cl placeholder-shown:truncate"
-            id="rname"
             placeholder="Please enter the recipient's name"
             required
+            {...register('recipientName')}
           />
+          {errors.recipientName?.message && (
+            <p className="absolute bottom-[-15px] text-caption-cl text-red-600">
+              {errors.recipientName?.message}
+            </p>
+          )}
         </div>
       </div>
-      <div className="input-field">
-        <label htmlFor="email" className="text-label-cl font-normal">
-          Email*
-        </label>
+      <div className="input-field relative">
+        <label className="text-label-cl font-normal">Email*</label>
         <input
           type="text"
-          className="input h-input-cl pl-input-cl"
-          id="email"
+          className="input relative h-input-cl pl-input-cl"
           placeholder="Please enter your email"
           required
+          {...register('email')}
         />
+        {errors.email?.message && (
+          <p className="absolute bottom-[-15px] text-caption-cl text-red-600">
+            {errors.email?.message}
+          </p>
+        )}
       </div>
-      <div className="input-field">
-        <label htmlFor="remail" className="text-label-cl font-normal">
+      <div className="input-field relative">
+        <label className="text-label-cl font-normal">
           Recipient&apos;s Email*
         </label>
         <input
           type="text"
           className="input h-input-cl pl-input-cl"
-          id="remail"
           placeholder="Please enter the recipient's email"
           required
+          {...register('recipientEmail')}
         />
+        {errors.recipientEmail?.message && (
+          <p className="absolute bottom-[-15px] text-caption-cl text-red-600">
+            {errors.recipientEmail?.message}
+          </p>
+        )}
       </div>
       <div className="input-field">
         <label htmlFor="message" className="text-label-cl font-normal">
@@ -83,7 +162,6 @@ const Form = ({
         </label>
         <textarea
           className="input h-txt-area-cl pl-input-cl pt-input-cl"
-          id="message"
           placeholder="Please write your message"
           required
           minLength={1}
@@ -99,7 +177,6 @@ const Form = ({
             Font
           </label>
           <select
-            id="font"
             className="input h-input-cl cursor-pointer appearance-none bg-[url('/arrow_down.svg')] bg-clip-padding bg-[97%_50%] bg-no-repeat px-input-cl"
             value={fontStyle}
             onChange={(e) => setFontStyle(e.target.value)}
@@ -112,23 +189,27 @@ const Form = ({
           </select>
         </div>
         <div className="input-field w-sm-input-cl">
-          <label htmlFor="fontcolor" className="text-label-cl font-normal">
-            Font Color
-          </label>
+          <label className="text-label-cl font-normal">Font Color</label>
           <ColorPicker color={fontColor} setColor={setFontColor} />
         </div>
       </div>
       <div className="input-field w-sm-input-cl">
-        <label htmlFor="bgcolor" className="text-label-cl font-normal">
-          Background Color
-        </label>
+        <label className="text-label-cl font-normal">Background Color</label>
         <ColorPicker color={backgroundColor} setColor={setBackgroundColor} />
       </div>
       <div className="mt-creation-btn-cl flex w-full gap-creation-btn-cl max-md:flex-wrap">
-        <button className="btn h-input-cl w-full rounded-md bg-light-gray text-btn-cl text-black">
+        {/* // TODO: Consider a hover tool tip */}
+        <button
+          className="btn h-input-cl w-full rounded-md bg-light-gray text-btn-cl text-black"
+          onClick={handleOnClick}
+        >
           select another photo
         </button>
-        <button className="btn h-input-cl w-full rounded-md bg-strawberry-600 text-btn-cl text-white">
+        <button
+          type="submit"
+          className="btn h-input-cl w-full rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md disabled:cursor-not-allowed disabled:opacity-75"
+          disabled={!isDirty || !isValid || message.length < 1}
+        >
           send
         </button>
       </div>
