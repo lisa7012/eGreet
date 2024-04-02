@@ -16,7 +16,7 @@ const PhotoSelectionError = () => {
         photo again.
       </h2>
       <button
-        className="btn h-input-cl w-sent-btns-cl rounded-md bg-light-gray text-btn-cl text-black"
+        className="btn h-input-cl w-sent-btns-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"
         onClick={handleOnClick}
       >
         return to photo gallery

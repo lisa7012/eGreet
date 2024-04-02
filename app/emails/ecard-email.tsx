@@ -4,22 +4,24 @@ import {
   Img,
   Container,
   Head,
-  Preview,
   Body,
   Heading,
   Section,
   Text,
   Hr,
   Font,
+  Link,
 } from '@react-email/components';
 import * as React from 'react';
-import type { Photo } from '../schemas/Photos';
+import { testImgSrc } from './testImg';
 
-type EmailProps = {
-  photoResult: Photo;
+type ECardEmailProps = {
+  name: string;
+  recipientName: string;
+  cardImgSrc: string;
 };
 
-const Email = ({ photoResult }: EmailProps) => {
+const ECardEmail = ({ name, recipientName, cardImgSrc }: ECardEmailProps) => {
   // TODO: to fix and edit
   return (
     <Tailwind>
@@ -36,7 +38,7 @@ const Email = ({ photoResult }: EmailProps) => {
             fontStyle="normal"
           />
         </Head>
-        <Preview>John has sent you an eCard!</Preview>
+        {/* <Preview>A special card sent from eGreet!</Preview> */}
         <Body>
           <Container className="relative overflow-hidden">
             <div className="mt-search-cl">
@@ -53,28 +55,33 @@ const Email = ({ photoResult }: EmailProps) => {
                 height={73}
               />
             </div>
-            <Heading className="mb-0.5 text-5xl font-medium">Hi Jane,</Heading>
+            {/* <Heading className="mb-0.5 text-5xl font-medium">
+              Hi {recipientName},
+            </Heading> */}
+            <Text className="mb-0.5 text-5xl font-medium">
+              Hi {recipientName},
+            </Text>
             <Text className="mb-6 mt-0 text-lg font-normal ">
-              You have received an e-card from John Doe!
+              You have received an e-card from {name}!
             </Text>
             <Section className=" relative mb-32 flex flex-col items-center">
               <Img
-                src="/static/eCard_preview.png"
+                src={testImgSrc}
                 alt="eCard"
                 width={555}
                 height={765}
                 className="self-center"
               />
             </Section>
-            <Img
+            {/* <Img
               src="/static/eGreet_logo_bottom.png"
               alt="eGreet_logo_bottom"
               width={500}
               height={500}
               className="absolute bottom-[-250px] right-[-200px] -z-1"
-            />
+            /> */}
             <Hr />
-            <div className="flex">
+            {/* <div className="flex">
               <Img
                 src="/static/eGreet_logo_gray.png"
                 alt="eGreet_logo_gray"
@@ -86,10 +93,29 @@ const Email = ({ photoResult }: EmailProps) => {
                   Visit eGreet to send free eCards today!
                 </Text>
                 <Text className="mt-0 text-center">
-                  ©2024 | www.eGreet.vercel.app
+                  ©2024 |&nbsp;
+                  // TODO: to update when the app is deployed
+                  <Link href="https://github.com/lisa7012/eGreet">
+                    www.eGreet.vercel.app
+                  </Link>
                 </Text>
               </div>
-            </div>
+            </div> */}
+            <Img
+              src="/static/eGreet_logo_gray.png"
+              alt="eGreet_logo_gray"
+              width={157}
+              height={73}
+            />
+            <Text className="mb-0 inline-block">
+              Visit eGreet to send free eCards today!
+            </Text>
+            <Text className="mt-0 ">
+              ©2024 |&nbsp;
+              <Link href="https://github.com/lisa7012/eGreet">
+                www.eGreet.vercel.app
+              </Link>
+            </Text>
           </Container>
         </Body>
       </Html>
@@ -97,4 +123,9 @@ const Email = ({ photoResult }: EmailProps) => {
   );
 };
 
-export default Email;
+export default ECardEmail;
+
+ECardEmail.PreviewProps = {
+  name: 'John',
+  recipientName: 'Jane',
+};

@@ -1,6 +1,7 @@
+import Card from '../components/Card';
 import type { PhotosResults } from '../schemas/Photos';
 
-// Type used for customization values stored in locaal storage
+// Type used for customization values stored in session storage
 type customizationValues = {
   fontStyle: string;
   fontColor: string;

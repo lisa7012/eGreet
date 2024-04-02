@@ -6,8 +6,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import useFormPersist from 'react-hook-form-persist';
-import { FormDataSchema, Inputs } from '../schemas/FormData';
+import { FormDataSchema, FormInputs } from '../schemas/FormData';
 import { setCustomizationValuesToSS } from '../lib/utils';
+import { sendEmail } from '../actions';
 
 type FormProps = {
   fontStyle: string;
@@ -18,9 +19,10 @@ type FormProps = {
   setFontColor: Dispatch<SetStateAction<string>>;
   setBackgroundColor: Dispatch<SetStateAction<string>>;
   setMessage: Dispatch<SetStateAction<string>>;
+  convertToPng: () => void;
 };
 
-type registeredFields = 'name' | 'recipientName' | 'email' | 'recipientEmail';
+type registeredFields = 'name' | 'recipientName' | 'recipientEmail';
 
 const Form = ({
   fontStyle,
@@ -31,6 +33,7 @@ const Form = ({
   setFontColor,
   setBackgroundColor,
   setMessage,
+  convertToPng,
 }: FormProps) => {
   const {
     register,
@@ -40,7 +43,7 @@ const Form = ({
     trigger,
     getValues,
     formState: { errors, isDirty, isValid },
-  } = useForm<Inputs>({
+  } = useForm<FormInputs>({
     resolver: zodResolver(FormDataSchema),
     mode: 'all',
   });
@@ -69,7 +72,7 @@ const Form = ({
       const fieldsToValidate: registeredFields[] = [];
       const fieldValues = getValues();
 
-      let key: keyof Inputs;
+      let key: keyof FormInputs;
       for (key in fieldValues) {
         if (fieldValues[key].length !== 0) {
           fieldsToValidate.push(key);
@@ -83,11 +86,28 @@ const Form = ({
   }, []);
 
   // WORKING HERE NOWWWWWWWWWWWWWWWWWWWWW
-  const handleOnSubmitForm: SubmitHandler<Inputs> = (data) => console.log(data);
+  const handleOnSubmitForm: SubmitHandler<FormInputs> = (data: FormInputs) => {
+    convertToPng();
+    const cardImgSrc = sessionStorage.getItem('cardSrcImg') ?? '';
+
+    // OKAY SCREW THE USING CARD SHIT BECAUSE FONT STYLE ISN'T WORKING, STICK WITH EXPORTING
+    // sessionStorage.setItem('cardSrcImg', photoResult);
+    // const cardImgSrc = sessionStorage.getItem('cardSrcImg') ?? '';
+    sendEmail(data, cardImgSrc);
+    // if (sessionStorage.getItem('userFormData')) {
+    //   sessionStorage.removeItem('userFormData');
+    // }
+
+    // if (sessionStorage.getItem('userCustomizationValues')) {
+    //   sessionStorage.removeItem('userCustomizationValues');
+    // }
+
+    // router.push('/sent');
+  };
 
   return (
     <form
-      className="flex w-form-cl flex-col gap-form-cl"
+      className="my-auto flex w-form-cl flex-col gap-form-cl"
       onSubmit={handleSubmit(handleOnSubmitForm)}
     >
       <div className="flex gap-input-field-cl">
@@ -123,21 +143,6 @@ const Form = ({
             </p>
           )}
         </div>
-      </div>
-      <div className="input-field relative">
-        <label className="text-label-cl font-normal">Email*</label>
-        <input
-          type="text"
-          className="input relative h-input-cl pl-input-cl"
-          placeholder="Please enter your email"
-          required
-          {...register('email')}
-        />
-        {errors.email?.message && (
-          <p className="absolute bottom-[-15px] text-caption-cl text-red-600">
-            {errors.email?.message}
-          </p>
-        )}
       </div>
       <div className="input-field relative">
         <label className="text-label-cl font-normal">

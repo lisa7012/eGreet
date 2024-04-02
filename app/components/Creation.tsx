@@ -1,11 +1,12 @@
 'use client';
 import { useState } from 'react';
 import type { Photo } from '../schemas/Photos';
+import { getCustomizationValuesFromSS } from '../lib/utils';
+import { useToPng } from '@hugocxl/react-to-image';
 
 // components
 import Card from './Card';
 import Form from './Form';
-import { getCustomizationValuesFromSS } from '../lib/utils';
 
 type CardCreationProps = {
   photoResult: Photo;
@@ -31,7 +32,12 @@ const Creation = ({ photoResult }: CardCreationProps) => {
   );
   const [message, setMessage] = useState(values.message);
 
-  // TODO: --> server action, react email, resend
+  const [_, convertToPng, cardRef] = useToPng<HTMLDivElement>({
+    onSuccess: (data) => {
+      sessionStorage.setItem('cardImgSrc', data);
+    },
+  });
+
   const customizationValues = {
     fontStyle,
     fontColor,
@@ -44,11 +50,16 @@ const Creation = ({ photoResult }: CardCreationProps) => {
     setFontColor,
     setBackgroundColor,
     setMessage,
+    convertToPng,
   };
 
   return (
     <>
-      <Card photoResult={photoResult} {...customizationValues} />
+      <Card
+        photoResult={photoResult}
+        {...customizationValues}
+        cardRef={cardRef}
+      />
       <Form {...customizationValues} {...customizationHandlers} />
     </>
   );

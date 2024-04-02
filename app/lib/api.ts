@@ -2,6 +2,7 @@ import type { Photo, PhotosResults } from '../schemas/Photos';
 import { CompletePhotosSchema, PhotoSchema } from '../schemas/Photos';
 import env from './env';
 
+// fetching photos with Pexels API
 export const fetchPhotos = async (
   url: string,
 ): Promise<PhotosResults | undefined> => {

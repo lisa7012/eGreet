@@ -9,6 +9,7 @@ type CardProps = {
   fontColor: string;
   backgroundColor: string;
   message: string;
+  cardRef: (domNode: HTMLDivElement) => void;
 };
 
 const Card = ({
@@ -17,9 +18,13 @@ const Card = ({
   fontColor,
   backgroundColor,
   message,
+  cardRef,
 }: CardProps) => {
   return (
-    <div className=" my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#999997]">
+    <div
+      className=" my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#999997]"
+      ref={cardRef}
+    >
       <div className="relative h-card-pic-cl">
         <Image
           src={photoResult.src.large}
