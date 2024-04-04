@@ -9,8 +9,10 @@ import useFormPersist from 'react-hook-form-persist';
 import { FormDataSchema, FormInputs } from '../schemas/FormData';
 import { setCustomizationValuesToSS } from '../lib/utils';
 import { sendEmail } from '../actions';
+import { Photo } from '../schemas/Photos';
 
 type FormProps = {
+  photoResult: Photo;
   fontStyle: string;
   fontColor: string;
   backgroundColor: string;
@@ -25,6 +27,7 @@ type FormProps = {
 type registeredFields = 'name' | 'recipientName' | 'recipientEmail';
 
 const Form = ({
+  photoResult,
   fontStyle,
   fontColor,
   backgroundColor,
@@ -88,10 +91,9 @@ const Form = ({
   // WORKING HERE NOWWWWWWWWWWWWWWWWWWWWW
   const handleOnSubmitForm: SubmitHandler<FormInputs> = (data: FormInputs) => {
     convertToPng();
-    const cardImgSrc = sessionStorage.getItem('cardSrcImg') ?? '';
+    const cardImgSrc = sessionStorage.getItem('cardImgSrc') ?? '';
 
-    // OKAY SCREW THE USING CARD SHIT BECAUSE FONT STYLE ISN'T WORKING, STICK WITH EXPORTING
-    // sessionStorage.setItem('cardSrcImg', photoResult);
+    // console.log(cardImgSrc);
     // const cardImgSrc = sessionStorage.getItem('cardSrcImg') ?? '';
     sendEmail(data, cardImgSrc);
     // if (sessionStorage.getItem('userFormData')) {

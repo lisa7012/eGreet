@@ -62,15 +62,16 @@ const ECardEmail = ({ name, recipientName, cardImgSrc }: ECardEmailProps) => {
               Hi {recipientName},
             </Text>
             <Text className="mb-6 mt-0 text-lg font-normal ">
-              You have received an e-card from {name}!
+              You have received an eCard from {name}!
             </Text>
             <Section className=" relative mb-32 flex flex-col items-center">
               <Img
-                src={testImgSrc}
+                src={cardImgSrc}
                 alt="eCard"
                 width={555}
                 height={765}
                 className="self-center"
+                datatype="DataUri"
               />
             </Section>
             {/* <Img

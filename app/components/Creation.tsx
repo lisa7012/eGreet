@@ -33,6 +33,7 @@ const Creation = ({ photoResult }: CardCreationProps) => {
   const [message, setMessage] = useState(values.message);
 
   const [_, convertToPng, cardRef] = useToPng<HTMLDivElement>({
+    quality: 1.0,
     onSuccess: (data) => {
       sessionStorage.setItem('cardImgSrc', data);
     },
@@ -60,7 +61,11 @@ const Creation = ({ photoResult }: CardCreationProps) => {
         {...customizationValues}
         cardRef={cardRef}
       />
-      <Form {...customizationValues} {...customizationHandlers} />
+      <Form
+        photoResult={photoResult}
+        {...customizationValues}
+        {...customizationHandlers}
+      />
     </>
   );
 };
