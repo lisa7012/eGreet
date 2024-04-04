@@ -38,7 +38,6 @@ const ECardEmail = ({ name, recipientName, cardImgSrc }: ECardEmailProps) => {
             fontStyle="normal"
           />
         </Head>
-        {/* <Preview>A special card sent from eGreet!</Preview> */}
         <Body>
           <Container className="relative overflow-hidden">
             <div className="mt-search-cl">

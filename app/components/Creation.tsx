@@ -20,7 +20,7 @@ const initialCustomizationValues = {
 };
 
 const Creation = ({ photoResult }: CardCreationProps) => {
-  let values = getCustomizationValuesFromSS(
+  const values = getCustomizationValuesFromSS(
     'userCustomizationValues',
     initialCustomizationValues,
   );

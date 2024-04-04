@@ -3,8 +3,8 @@ import type { Photo } from '../../../schemas/Photos';
 import type { Metadata } from 'next';
 
 // components
-import Creation from '@/app/components/Creation';
-import PhotoSelectionError from '@/app/components/PhotoSelectionError';
+import Creation from '../../../components/Creation';
+import PhotoSelectionError from '../../../components/PhotoSelectionError';
 
 type CardCreationProps = {
   params: {
