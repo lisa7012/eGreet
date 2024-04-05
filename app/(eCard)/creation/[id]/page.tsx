@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: 'Card Creation',
 };
 
-const CardCreation = async ({ params: { id } }: CardCreationProps) => {
+const CardCreationPage = async ({ params: { id } }: CardCreationProps) => {
   const url = `https://api.pexels.com/v1/photos/${id}`;
 
   const photoResult: Photo | undefined = await fetchASinglePhoto(url);
@@ -25,11 +25,7 @@ const CardCreation = async ({ params: { id } }: CardCreationProps) => {
     return <PhotoSelectionError />;
   }
 
-  return (
-    <div className="my-auto flex justify-center gap-creation-cl max-md:flex-wrap">
-      <Creation photoResult={photoResult} />
-    </div>
-  );
+  return <Creation photoResult={photoResult} />;
 };
 
-export default CardCreation;
+export default CardCreationPage;

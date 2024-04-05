@@ -17,13 +17,23 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const sendEmail = async (data: FormInputs, cardImgSrc: string) => {
+export const sendEmail = async (
+  data: FormInputs,
+  cardImgSrc: string,
+  photoId: number,
+  // fontStyle: string,
+  // fontColor: string,
+  // backgroundColor: string,
+  // message: string,
+) => {
   const result = FormDataSchema.safeParse(data);
 
   if (result.success) {
     const { name, recipientName, recipientEmail } = result.data;
 
-    const emailHtml = render(ECardEmail({ name, recipientName, cardImgSrc }));
+    const emailHtml = render(
+      ECardEmail({ name, recipientName, cardImgSrc, photoId }),
+    );
 
     const mailOptions = {
       from: {

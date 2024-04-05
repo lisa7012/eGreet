@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Photo Gallery',
 };
 
-const PhotoGallery = async () => {
+const PhotoGalleryPage = async () => {
   const url = 'https://api.pexels.com/v1/curated';
 
   const photosResults: PhotosResults | undefined = await fetchPhotos(url);
@@ -45,4 +45,4 @@ const PhotoGallery = async () => {
   );
 };
 
-export default PhotoGallery;
+export default PhotoGalleryPage;

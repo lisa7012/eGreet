@@ -37,7 +37,7 @@ const SearchBar = () => {
           <Link
             href="https://www.pexels.com"
             target="_blank"
-            className="font-medium hover:underline"
+            className="font-medium text-strawberry-600 underline"
           >
             pexels
           </Link>

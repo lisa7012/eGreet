@@ -11,6 +11,7 @@ import {
   Hr,
   Font,
   Link,
+  Button,
 } from '@react-email/components';
 import * as React from 'react';
 import { testImgSrc } from './testImg';
@@ -19,10 +20,19 @@ type ECardEmailProps = {
   name: string;
   recipientName: string;
   cardImgSrc: string;
+  photoId: number;
 };
 
-const ECardEmail = ({ name, recipientName, cardImgSrc }: ECardEmailProps) => {
-  // TODO: to fix and edit
+const ECardEmail = ({
+  name,
+  recipientName,
+  cardImgSrc,
+  photoId,
+}: ECardEmailProps) => {
+  //TODO: to fix when after deploying
+  const baseURL =
+    process.env.NODE_ENV === 'production' ? 'https://eGreet.vercel.app' : '';
+
   return (
     <Tailwind>
       <Html>
@@ -41,14 +51,8 @@ const ECardEmail = ({ name, recipientName, cardImgSrc }: ECardEmailProps) => {
         <Body>
           <Container className="relative overflow-hidden">
             <div className="mt-search-cl">
-              {/* <Img
-                src="/static/eGreet_logo_color.png"
-                alt="eGreet_logo"
-                width={157}
-                height={73}
-              /> */}
               <Img
-                src="http://localhost:3000/static/eGreet_logo_color.png"
+                src={`${baseURL}/static/eGreet_logo_color.png`}
                 alt="eGreet_logo"
                 width={157}
                 height={73}
@@ -63,7 +67,15 @@ const ECardEmail = ({ name, recipientName, cardImgSrc }: ECardEmailProps) => {
             <Text className="mb-6 mt-0 text-lg font-normal ">
               You have received an eCard from {name}!
             </Text>
-            <Section className=" relative mb-32 flex flex-col items-center">
+            <Section className=" relative mb-20 flex flex-col items-center">
+              <Section className="">
+                <Button
+                  className="leading-0 mb-8 h-[35px] w-[285px] rounded-md bg-[#DD415B] pt-[15px] text-center text-[15px] text-white shadow-md"
+                  href={`${baseURL}/recipient/${photoId}`}
+                >
+                  View and download in browser
+                </Button>
+              </Section>
               <Img
                 src={cardImgSrc}
                 alt="eCard"
@@ -73,17 +85,10 @@ const ECardEmail = ({ name, recipientName, cardImgSrc }: ECardEmailProps) => {
                 datatype="DataUri"
               />
             </Section>
-            {/* <Img
-              src="/static/eGreet_logo_bottom.png"
-              alt="eGreet_logo_bottom"
-              width={500}
-              height={500}
-              className="absolute bottom-[-250px] right-[-200px] -z-1"
-            /> */}
             <Hr />
             {/* <div className="flex">
               <Img
-                src="/static/eGreet_logo_gray.png"
+                src={`${baseURL}/static/eGreet_logo_gray.png`}
                 alt="eGreet_logo_gray"
                 width={157}
                 height={73}
@@ -128,4 +133,5 @@ export default ECardEmail;
 ECardEmail.PreviewProps = {
   name: 'John',
   recipientName: 'Jane',
+  cardImgSrc: testImgSrc,
 };

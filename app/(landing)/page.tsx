@@ -1,34 +1,34 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Home = () => {
+const LandingPage = () => {
   return (
     <>
       {/* Origami pattern in the background */}
       <section className="fixed -z-1 grid h-screen w-screen grid-cols-12 grid-rows-12 pt-0">
         <Image
-          src="/pattern-g1.svg"
+          src="/pattern_g1.svg"
           alt="pattern group 1"
           width={438}
           height={490}
           className="col-span-3 row-start-8 pt-3 max-lg:row-start-10 max-mobile:hidden"
         />
         <Image
-          src="/pattern-g2.svg"
+          src="/pattern_g2.svg"
           alt="pattern group 2"
           width={521}
           height={688}
           className="col-span-4 col-start-4 row-span-6 row-start-7 mt-11 max-mobile:hidden"
         />
         <Image
-          src="/pattern-g3.svg"
+          src="/pattern_g3.svg"
           alt="pattern group 3"
           width={756}
           height={361}
           className="col-span-5 col-start-7 row-span-4 row-start-1 max-mobile:col-span-9 max-mobile:col-start-4"
         />
         <Image
-          src="/pattern-g4.svg"
+          src="/pattern_g4.svg"
           alt="pattern group 4"
           width={521}
           height={688}
@@ -46,7 +46,7 @@ const Home = () => {
           {/* TODO: Check styles and group whichever thats needs it to reduce clutter */}
           <Link
             href="/photogallery"
-            className="btn h-landing-btn-cl w-landing-btn-cl rounded-md bg-mustard text-btn-cl hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-lg:self-center"
+            className="btn h-btn-cl w-landing-btn-cl rounded-md bg-mustard text-btn-cl hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-lg:self-center"
           >
             get started!
           </Link>
@@ -65,4 +65,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LandingPage;

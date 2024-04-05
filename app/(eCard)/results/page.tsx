@@ -7,7 +7,7 @@ export const generateMetadata = () => {
   };
 };
 
-const EmptySearchResult = () => {
+const EmptySearchResultPage = () => {
   return (
     <>
       <SearchBar />
@@ -20,4 +20,4 @@ const EmptySearchResult = () => {
   );
 };
 
-export default EmptySearchResult;
+export default EmptySearchResultPage;

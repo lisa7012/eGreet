@@ -29,7 +29,9 @@ export const generateMetadata = ({
   };
 };
 
-const SearchResults = async ({ params: { myParams } }: SearchResultsProps) => {
+const SearchResultsPage = async ({
+  params: { myParams },
+}: SearchResultsProps) => {
   const searchQuery = myParams?.[0] ?? 'curated';
   const page = myParams?.[1] ?? '1';
 
@@ -67,4 +69,4 @@ const SearchResults = async ({ params: { myParams } }: SearchResultsProps) => {
   );
 };
 
-export default SearchResults;
+export default SearchResultsPage;

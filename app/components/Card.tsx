@@ -1,4 +1,4 @@
-// Part of Creation client bundle
+// Part of CardView client bundle
 
 import Image from 'next/image';
 import type { Photo } from '../schemas/Photos';
@@ -22,7 +22,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <div
-      className=" my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#999997]"
+      className=" my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#DCDBD9]"
       ref={cardRef}
     >
       <div className="relative h-card-pic-cl">
@@ -40,7 +40,10 @@ const Card = ({
           backgroundColor: backgroundColor,
         }}
       >
-        <p className="caption self-end pr-1 pt-1" style={{ color: fontColor }}>
+        <p
+          className="caption self-start pl-2 pt-1"
+          style={{ color: fontColor }}
+        >
           photo by: {photoResult.photographer}
         </p>
         <p

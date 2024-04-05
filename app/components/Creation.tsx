@@ -8,21 +8,21 @@ import { useToPng } from '@hugocxl/react-to-image';
 import Card from './Card';
 import Form from './Form';
 
-type CardCreationProps = {
+type CardViewProps = {
   photoResult: Photo;
 };
 
-const initialCustomizationValues = {
+export const defaultCustomizationValues = {
   fontStyle: 'font-poppins',
   fontColor: '#333333',
   backgroundColor: '#ffffff',
   message: '',
 };
 
-const Creation = ({ photoResult }: CardCreationProps) => {
+const Creation = ({ photoResult }: CardViewProps) => {
   const values = getCustomizationValuesFromSS(
     'userCustomizationValues',
-    initialCustomizationValues,
+    defaultCustomizationValues,
   );
 
   const [fontStyle, setFontStyle] = useState(values.fontStyle);
@@ -55,7 +55,7 @@ const Creation = ({ photoResult }: CardCreationProps) => {
   };
 
   return (
-    <>
+    <div className="my-auto flex justify-center gap-creation-cl max-md:flex-wrap">
       <Card
         photoResult={photoResult}
         {...customizationValues}
@@ -66,7 +66,7 @@ const Creation = ({ photoResult }: CardCreationProps) => {
         {...customizationValues}
         {...customizationHandlers}
       />
-    </>
+    </div>
   );
 };
 

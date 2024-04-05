@@ -1,7 +1,7 @@
-// Part of Creation client bundle
+// Part of CardView client bundle
 
 import ColorPicker from './ColorPicker';
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect, MouseEvent } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -11,7 +11,7 @@ import { setCustomizationValuesToSS } from '../lib/utils';
 import { sendEmail } from '../actions';
 import { Photo } from '../schemas/Photos';
 
-type FormProps = {
+export type FormProps = {
   photoResult: Photo;
   fontStyle: string;
   fontColor: string;
@@ -59,7 +59,8 @@ const Form = ({
 
   const router = useRouter();
 
-  const handleOnClick = () => {
+  const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     setCustomizationValuesToSS('userCustomizationValues', {
       fontStyle: fontStyle,
       fontColor: fontColor,
@@ -93,9 +94,17 @@ const Form = ({
     convertToPng();
     const cardImgSrc = sessionStorage.getItem('cardImgSrc') ?? '';
 
+    // const cardCustomization = {
+    //   id: photoResult.id,
+    //   fontStyle: fontStyle,
+    //   fontColor: fontColor,
+    //   backgroundColor: backgroundColor,
+    //   message: encodeURI(message),
+    // };
+
     // console.log(cardImgSrc);
     // const cardImgSrc = sessionStorage.getItem('cardSrcImg') ?? '';
-    sendEmail(data, cardImgSrc);
+    sendEmail(data, cardImgSrc, photoResult.id);
     // if (sessionStorage.getItem('userFormData')) {
     //   sessionStorage.removeItem('userFormData');
     // }
@@ -114,7 +123,12 @@ const Form = ({
     >
       <div className="flex gap-input-field-cl">
         <div className="input-field relative w-sm-input-cl">
-          <label className="text-label-cl font-normal">Name*</label>
+          <label className="text-label-cl font-normal">
+            Your Name
+            <p className="inline-block text-label-cl font-normal text-strawberry-600">
+              *
+            </p>
+          </label>
           <input
             type="text"
             className="input h-input-cl pl-input-cl placeholder-shown:truncate"
@@ -130,7 +144,10 @@ const Form = ({
         </div>
         <div className="input-field relative w-sm-input-cl">
           <label className="text-label-cl font-normal">
-            Recipient&apos;s Name*
+            Recipient&apos;s Name
+            <p className="inline-block text-label-cl font-normal text-strawberry-600">
+              *
+            </p>
           </label>
           <input
             type="text"
@@ -148,7 +165,10 @@ const Form = ({
       </div>
       <div className="input-field relative">
         <label className="text-label-cl font-normal">
-          Recipient&apos;s Email*
+          Recipient&apos;s Email
+          <p className="inline-block text-label-cl font-normal text-strawberry-600">
+            *
+          </p>
         </label>
         <input
           type="text"
@@ -165,7 +185,10 @@ const Form = ({
       </div>
       <div className="input-field">
         <label htmlFor="message" className="text-label-cl font-normal">
-          Message*
+          Message
+          <p className="inline-block text-label-cl font-normal text-strawberry-600">
+            *
+          </p>
         </label>
         <textarea
           className="input h-txt-area-cl pl-input-cl pt-input-cl"
@@ -205,16 +228,15 @@ const Form = ({
         <ColorPicker color={backgroundColor} setColor={setBackgroundColor} />
       </div>
       <div className="mt-creation-btn-cl flex w-full gap-creation-btn-cl max-md:flex-wrap">
-        {/* // TODO: Consider a hover tool tip */}
         <button
-          className="btn h-input-cl w-full rounded-md bg-light-gray text-btn-cl text-black"
+          className="btn h-btn-cl w-full rounded-md bg-light-gray text-btn-cl text-black"
           onClick={handleOnClick}
         >
           select another photo
         </button>
         <button
           type="submit"
-          className="btn h-input-cl w-full rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md disabled:cursor-not-allowed disabled:opacity-75"
+          className="btn h-btn-cl w-full rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md disabled:cursor-not-allowed disabled:opacity-75"
           disabled={!isDirty || !isValid || message.length < 1}
         >
           send
