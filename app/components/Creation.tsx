@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import type { Photo } from '../schemas/Photos';
-import { getCustomizationValuesFromSS } from '../lib/utils';
+import { getCustomizationValuesFromLS } from '../lib/utils';
 import { useToPng } from '@hugocxl/react-to-image';
 
 // components
@@ -20,7 +20,7 @@ export const defaultCustomizationValues = {
 };
 
 const Creation = ({ photoResult }: CardViewProps) => {
-  const values = getCustomizationValuesFromSS(
+  const values = getCustomizationValuesFromLS(
     'userCustomizationValues',
     defaultCustomizationValues,
   );
@@ -35,7 +35,7 @@ const Creation = ({ photoResult }: CardViewProps) => {
   const [_, convertToPng, cardRef] = useToPng<HTMLDivElement>({
     quality: 1.0,
     onSuccess: (data) => {
-      sessionStorage.setItem('cardImgSrc', data);
+      localStorage.setItem('cardImgSrc', data);
     },
   });
 
@@ -58,12 +58,12 @@ const Creation = ({ photoResult }: CardViewProps) => {
     <div className="my-auto flex justify-center gap-creation-cl max-md:flex-wrap">
       <Card
         photoResult={photoResult}
-        {...customizationValues}
+        customizationValues={customizationValues}
         cardRef={cardRef}
       />
       <Form
         photoResult={photoResult}
-        {...customizationValues}
+        customizationValues={customizationValues}
         {...customizationHandlers}
       />
     </div>

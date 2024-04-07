@@ -14,19 +14,16 @@ import {
   Column,
 } from '@react-email/components';
 import * as React from 'react';
-import { testImgSrc } from './testImg';
 
 type ECardEmailProps = {
   senderName: string;
   recipientName: string;
-  cardImgSrc: string;
   recipientParams: string;
 };
 
-const ECardEmail = ({
+const ECardGmail = ({
   senderName,
   recipientName,
-  cardImgSrc,
   recipientParams,
 }: ECardEmailProps) => {
   //TODO: to fix when after deploying
@@ -66,25 +63,22 @@ const ECardEmail = ({
             <Text className="mb-5 mt-0 text-lg font-normal">
               Here is your special eCard from {senderName}!
             </Text>
-            <Section className=" relative mb-[30px] flex flex-col items-center">
-              <Row className="mb-2.5">
-                <Column align="right">
-                  <Link
-                    className="text-end text-[15px] italic text-[#DD415B] underline"
-                    href={`${baseURL}/recipient/${recipientParams}`}
-                  >
-                    view and download in browser
-                  </Link>
-                </Column>
-              </Row>
-              <Img
-                src={cardImgSrc}
-                alt="eCard"
-                width={555}
-                height={765}
-                className="self-center"
-                datatype="DataUri"
-              />
+            <Section className="mb-[30px]">
+              <Column align="center">
+                <Text className="text-4xl font-bold text-[#DD415B]">
+                  Oops...!
+                </Text>
+                <Text className="text-lg">
+                  Your eCard could not be loaded. Please click on the link
+                  below.
+                </Text>
+                <Link
+                  className="text-end text-[15px] italic text-[#DD415B] underline"
+                  href={`${baseURL}/recipient/${recipientParams}`}
+                >
+                  view in browser
+                </Link>
+              </Column>
             </Section>
             <Hr />
             <Row className="inline-flex">
@@ -115,10 +109,9 @@ const ECardEmail = ({
   );
 };
 
-export default ECardEmail;
+export default ECardGmail;
 
-ECardEmail.PreviewProps = {
+ECardGmail.PreviewProps = {
   senderName: 'John',
   recipientName: 'Jane',
-  cardImgSrc: testImgSrc,
 };

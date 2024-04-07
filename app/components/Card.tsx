@@ -1,25 +1,24 @@
-// Part of CardView client bundle
+// Part of Creation client bundle
 
 import Image from 'next/image';
 import type { Photo } from '../schemas/Photos';
 
-type CardProps = {
-  photoResult: Photo;
+export type CardCustomization = {
   fontStyle: string;
   fontColor: string;
   backgroundColor: string;
   message: string;
+};
+
+type CardProps = {
+  photoResult: Photo;
+  customizationValues: CardCustomization;
   cardRef: (domNode: HTMLDivElement) => void;
 };
 
-const Card = ({
-  photoResult,
-  fontStyle,
-  fontColor,
-  backgroundColor,
-  message,
-  cardRef,
-}: CardProps) => {
+const Card = ({ photoResult, customizationValues, cardRef }: CardProps) => {
+  const { fontStyle, fontColor, backgroundColor, message } =
+    customizationValues;
   return (
     <div
       className=" my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#DCDBD9]"

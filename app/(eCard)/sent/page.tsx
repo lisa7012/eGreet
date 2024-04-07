@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import PreviousPageButton from '@/app/components/PreviousPageButton';
 
 export const metadata: Metadata = {
   title: 'Thank you for using eGreet!',
@@ -16,9 +17,10 @@ const CardSentPage = () => {
         Your card has been sent! Thank you for using eGreet!
       </h2>
       <div className="flex justify-center gap-5 max-sm:flex-wrap">
-        <button className="btn h-btn-cl w-btn-cl rounded-md bg-light-gray text-btn-cl text-black">
-          reuse card
-        </button>
+        <PreviousPageButton
+          colorStyle="bg-light-gray text-black"
+          text="reuse card"
+        />
         <Link
           href="/photogallery"
           className="btn h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"

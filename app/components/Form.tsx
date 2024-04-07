@@ -1,4 +1,4 @@
-// Part of CardView client bundle
+// Part of Creation client bundle
 
 import ColorPicker from './ColorPicker';
 import { Dispatch, SetStateAction, useEffect, MouseEvent } from 'react';
@@ -7,16 +7,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import useFormPersist from 'react-hook-form-persist';
 import { FormDataSchema, FormInputs } from '../schemas/FormData';
-import { setCustomizationValuesToSS } from '../lib/utils';
+import { setCustomizationValuesToLS } from '../lib/utils';
 import { sendEmail } from '../actions';
 import { Photo } from '../schemas/Photos';
+import { CardCustomization } from './Card';
 
-export type FormProps = {
+type FormProps = {
   photoResult: Photo;
-  fontStyle: string;
-  fontColor: string;
-  backgroundColor: string;
-  message: string;
+  customizationValues: CardCustomization;
   setFontStyle: Dispatch<SetStateAction<string>>;
   setFontColor: Dispatch<SetStateAction<string>>;
   setBackgroundColor: Dispatch<SetStateAction<string>>;
@@ -24,14 +22,11 @@ export type FormProps = {
   convertToPng: () => void;
 };
 
-type registeredFields = 'name' | 'recipientName' | 'recipientEmail';
+type registeredFields = 'senderName' | 'recipientName' | 'recipientEmail';
 
 const Form = ({
   photoResult,
-  fontStyle,
-  fontColor,
-  backgroundColor,
-  message,
+  customizationValues,
   setFontStyle,
   setFontColor,
   setBackgroundColor,
@@ -51,17 +46,21 @@ const Form = ({
     mode: 'all',
   });
 
+  const { fontStyle, fontColor, backgroundColor, message } =
+    customizationValues;
+
   // persisting user's data when they decide to select another photo
   useFormPersist('userFormData', {
     watch,
     setValue,
+    storage: localStorage,
   });
 
   const router = useRouter();
 
   const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setCustomizationValuesToSS('userCustomizationValues', {
+    setCustomizationValuesToLS('userCustomizationValues', {
       fontStyle: fontStyle,
       fontColor: fontColor,
       backgroundColor: backgroundColor,
@@ -72,7 +71,7 @@ const Form = ({
 
   useEffect(() => {
     // revalidating fields when the user comes back from selecting another photo and they have some fields already populated
-    if (sessionStorage.getItem('userFormData')) {
+    if (localStorage.getItem('userFormData')) {
       const fieldsToValidate: registeredFields[] = [];
       const fieldValues = getValues();
 
@@ -89,31 +88,23 @@ const Form = ({
     }
   }, []);
 
-  // WORKING HERE NOWWWWWWWWWWWWWWWWWWWWW
   const handleOnSubmitForm: SubmitHandler<FormInputs> = (data: FormInputs) => {
     convertToPng();
-    const cardImgSrc = sessionStorage.getItem('cardImgSrc') ?? '';
 
-    // const cardCustomization = {
-    //   id: photoResult.id,
-    //   fontStyle: fontStyle,
-    //   fontColor: fontColor,
-    //   backgroundColor: backgroundColor,
-    //   message: encodeURI(message),
-    // };
+    const cardCustomization = {
+      photoId: photoResult.id,
+      cardImgSrc: localStorage.getItem('cardImgSrc') ?? '',
+      customizationValues: {
+        fontStyle: btoa(fontStyle),
+        fontColor: btoa(fontColor),
+        backgroundColor: btoa(backgroundColor),
+        message: btoa(message),
+      },
+    };
 
-    // console.log(cardImgSrc);
-    // const cardImgSrc = sessionStorage.getItem('cardSrcImg') ?? '';
-    sendEmail(data, cardImgSrc, photoResult.id);
-    // if (sessionStorage.getItem('userFormData')) {
-    //   sessionStorage.removeItem('userFormData');
-    // }
+    sendEmail(data, cardCustomization);
 
-    // if (sessionStorage.getItem('userCustomizationValues')) {
-    //   sessionStorage.removeItem('userCustomizationValues');
-    // }
-
-    // router.push('/sent');
+    router.push('/sent');
   };
 
   return (
@@ -134,11 +125,11 @@ const Form = ({
             className="input h-input-cl pl-input-cl placeholder-shown:truncate"
             placeholder="Please enter your name"
             required
-            {...register('name')}
+            {...register('senderName')}
           />
-          {errors.name?.message && (
+          {errors.senderName?.message && (
             <p className="absolute bottom-[-15px] text-caption-cl text-red-600">
-              {errors.name?.message}
+              {errors.senderName?.message}
             </p>
           )}
         </div>

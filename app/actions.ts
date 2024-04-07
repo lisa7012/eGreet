@@ -3,6 +3,8 @@ import env from './lib/env';
 import { FormDataSchema, FormInputs } from './schemas/FormData';
 import ECardEmail from './emails/ecard-email';
 import { render } from '@react-email/render';
+import { CardCustomization } from './components/Card';
+import ECardGmail from './emails/ecard-gmail';
 
 const nodemailer = require('nodemailer');
 
@@ -17,23 +19,41 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+type CardCustomizationValues = {
+  photoId: number;
+  cardImgSrc: string;
+  customizationValues: CardCustomization;
+};
+
 export const sendEmail = async (
   data: FormInputs,
-  cardImgSrc: string,
-  photoId: number,
-  // fontStyle: string,
-  // fontColor: string,
-  // backgroundColor: string,
-  // message: string,
+  cardCustomization: CardCustomizationValues,
 ) => {
   const result = FormDataSchema.safeParse(data);
 
   if (result.success) {
-    const { name, recipientName, recipientEmail } = result.data;
+    const { senderName, recipientName, recipientEmail } = result.data;
+    const {
+      photoId,
+      cardImgSrc,
+      customizationValues: { fontStyle, fontColor, backgroundColor, message },
+    } = cardCustomization;
 
-    const emailHtml = render(
-      ECardEmail({ name, recipientName, cardImgSrc, photoId }),
-    );
+    const recipientParams = `${photoId}?senderName=${senderName}&recipientName=${recipientName}&fontStyle=${fontStyle}&fontColor=${fontColor}&backgroundColor=${backgroundColor}&message=${message}`;
+
+    const emailParts = recipientEmail.split('@');
+
+    const emailHtml =
+      emailParts[1] !== ('gmail.com' || 'googlemail.com' || 'google.com')
+        ? render(
+            ECardEmail({
+              senderName,
+              recipientName,
+              cardImgSrc,
+              recipientParams,
+            }),
+          )
+        : render(ECardGmail({ senderName, recipientName, recipientParams }));
 
     const mailOptions = {
       from: {
@@ -41,7 +61,7 @@ export const sendEmail = async (
         address: env.SENDER_EMAIL,
       },
       to: recipientEmail,
-      subject: `${name} has sent you an eCard!`,
+      subject: `${senderName} has sent you an eCard!`,
       html: emailHtml,
     };
 

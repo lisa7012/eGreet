@@ -17,14 +17,17 @@ const RecipientView = ({ photoResult }: RecipientViewProps) => {
   const senderName = searchParams.get('senderName') ?? '';
 
   const customizationValues = {
-    fontStyle:
+    fontStyle: atob(
       searchParams.get('fontStyle') ?? defaultCustomizationValues.fontStyle,
-    fontColor:
+    ),
+    fontColor: atob(
       searchParams.get('fontColor') ?? defaultCustomizationValues.fontColor,
-    backgroundColor:
+    ),
+    backgroundColor: atob(
       searchParams.get('backgroundColor') ??
-      defaultCustomizationValues.backgroundColor,
-    message: searchParams.get('message') ?? '', // TODO: figure out the decoding part
+        defaultCustomizationValues.backgroundColor,
+    ),
+    message: atob(searchParams.get('message') ?? ''),
   };
 
   const [_, convertToPng, cardRef] = useToPng<HTMLDivElement>({
@@ -38,7 +41,7 @@ const RecipientView = ({ photoResult }: RecipientViewProps) => {
   });
 
   return (
-    <div className="flex flex-col items-center gap-sent-cl">
+    <div className="my-auto flex flex-col items-center gap-sent-cl">
       <div>
         <h1 className="text-recipient-name-cl leading-none">
           Hi {recipientName},
@@ -49,7 +52,7 @@ const RecipientView = ({ photoResult }: RecipientViewProps) => {
       </div>
       <Card
         photoResult={photoResult}
-        {...customizationValues}
+        customizationValues={customizationValues}
         cardRef={cardRef}
       />
       <div className="flex w-full justify-center gap-creation-btn-cl max-md:flex-wrap">

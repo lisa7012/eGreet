@@ -1,8 +1,9 @@
-import Card from '../components/Card';
+import { CardCustomization } from '../components/Card';
 import type { PhotosResults } from '../schemas/Photos';
 
-// Type used for customization values stored in session storage
-type customizationValues = {
+type searchParams = {
+  senderName: string;
+  recipientName: string;
   fontStyle: string;
   fontColor: string;
   backgroundColor: string;
@@ -10,25 +11,25 @@ type customizationValues = {
 };
 
 // function to help grab user's customization values from before clicking "select another photo"
-export const getCustomizationValuesFromSS = (
+export const getCustomizationValuesFromLS = (
   key: string,
-  initialValues: customizationValues,
-): customizationValues => {
+  initialValues: CardCustomization,
+): CardCustomization => {
   try {
-    const values = window.sessionStorage.getItem(key);
+    const values = window.localStorage.getItem(key);
     return values ? JSON.parse(values) : initialValues;
   } catch (e) {
     return initialValues;
   }
 };
 
-// function to save user's customization values to session storage when clicking "select another photo"
-export const setCustomizationValuesToSS = (
+// function to save user's customization values to local storage when clicking "select another photo"
+export const setCustomizationValuesToLS = (
   key: string,
-  values: customizationValues,
+  values: CardCustomization,
 ) => {
   try {
-    window.sessionStorage.setItem(key, JSON.stringify(values));
+    window.localStorage.setItem(key, JSON.stringify(values));
   } catch (e) {
     console.log(e);
   }
