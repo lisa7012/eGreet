@@ -58,12 +58,12 @@ const RecipientView = ({ photoResult }: RecipientViewProps) => {
       <div className="flex w-full justify-center gap-creation-btn-cl max-md:flex-wrap">
         <Link
           href="/"
-          className="btn h-btn-cl w-btn-cl rounded-md bg-light-gray text-btn-cl text-black"
+          className="btn hover:bg-gray-hover h-btn-cl w-btn-cl rounded-md bg-light-gray text-btn-cl text-black"
         >
           send eCards with eGreet
         </Link>
         <button
-          className="btn h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"
+          className="btn hover:bg-strawberry-hover h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"
           onClick={convertToPng}
         >
           download eCard

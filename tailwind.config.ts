@@ -19,6 +19,9 @@ const config: Config = {
         white: '#FFFFFF',
         black: '#333333',
         'light-gray': '#DCDBD9',
+        'strawberry-hover': '#C73A52',
+        'gray-hover': '#C7C5C3',
+        'mustard-hover': '#D2A92A',
       },
       screens: {
         mobile: '480px',
@@ -77,6 +80,7 @@ const config: Config = {
         'cp-pointer-cl': 'clamp(1.125rem, 0.9733rem + 0.6472vw, 1.75rem)',
         'page-icon-cl': 'clamp(5.438rem, 3.9060rem + 6.5367vw, 11.75rem)',
         'btn-cl': 'clamp(16.875rem, 16.6473rem + 0.9714vw, 17.813rem)',
+        '404-cl': 'clamp(15rem, 10.2973rem + 20.0647vw, 34.375rem)',
       },
       height: {
         'logo-cl': 'clamp(2.063rem, 1.2438rem + 3.4951vw, 5.438rem)',
@@ -93,6 +97,7 @@ const config: Config = {
         'cp-pointer-cl': 'clamp(1.125rem, 0.9733rem + 0.6472vw, 1.75rem)',
         'cp-hue-cl': 'clamp(1.125rem, 1.0340rem + 0.3883vw, 1.5rem)',
         'page-icon-cl': 'clamp(5.438rem, 3.9060rem + 6.5367vw, 11.75rem)',
+        '404-cl': 'clamp(12.5rem, 11.8172rem + 2.9131vw, 15.313rem)',
       },
       gap: {
         'content-cl': 'clamp(1.875rem, 1.2250rem + 2.7735vw, 3rem)',

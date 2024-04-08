@@ -220,14 +220,14 @@ const Form = ({
       </div>
       <div className="mt-creation-btn-cl flex w-full gap-creation-btn-cl max-md:flex-wrap">
         <button
-          className="btn h-btn-cl w-full rounded-md bg-light-gray text-btn-cl text-black"
+          className="btn hover:bg-gray-hover h-btn-cl w-full rounded-md bg-light-gray text-btn-cl text-black"
           onClick={handleOnClick}
         >
           select another photo
         </button>
         <button
           type="submit"
-          className="btn h-btn-cl w-full rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md disabled:cursor-not-allowed disabled:opacity-75"
+          className="btn enabled:hover:bg-strawberry-hover h-btn-cl w-full rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md disabled:cursor-not-allowed disabled:opacity-75"
           disabled={!isDirty || !isValid || message.length < 1}
         >
           send

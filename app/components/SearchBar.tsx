@@ -27,7 +27,7 @@ const SearchBar = () => {
           />
           <button
             type="submit"
-            className="btn h-input-cl w-search-btn-cl rounded-md bg-strawberry-600 text-search-btn-cl text-white max-md:hidden"
+            className="btn hover:bg-strawberry-hover h-input-cl w-search-btn-cl rounded-md bg-strawberry-600 text-search-btn-cl text-white max-md:hidden"
           >
             search
           </button>

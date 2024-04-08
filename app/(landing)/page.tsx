@@ -45,7 +45,7 @@ const LandingPage = () => {
           </p>
           <Link
             href="/photogallery"
-            className="btn h-btn-cl w-landing-btn-cl rounded-md bg-mustard text-btn-cl hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-lg:self-center"
+            className="btn hover:bg-mustard-hover h-btn-cl w-landing-btn-cl rounded-md bg-mustard text-btn-cl hover:animate-bounce motion-reduce:animate-bounce max-lg:self-center"
           >
             get started!
           </Link>

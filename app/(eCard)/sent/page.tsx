@@ -18,12 +18,12 @@ const CardSentPage = () => {
       </h2>
       <div className="flex justify-center gap-5 max-sm:flex-wrap">
         <PreviousPageButton
-          colorStyle="bg-light-gray text-black"
+          colorStyle="bg-light-gray text-black hover:bg-gray-hover"
           text="reuse card"
         />
         <Link
           href="/photogallery"
-          className="btn h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"
+          className="btn hover:bg-strawberry-hover h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"
         >
           send another card
         </Link>

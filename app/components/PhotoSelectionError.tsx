@@ -17,7 +17,7 @@ const PhotoSelectionError = () => {
         photo again.
       </h2>
       <PreviousPageButton
-        colorStyle="bg-strawberry-600 text-white"
+        colorStyle="bg-strawberry-600 text-white hover:bg-strawberry-hover"
         text="return to photo gallery"
       />
     </div>
