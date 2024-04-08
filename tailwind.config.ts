@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss';
 
-// TODO: check for any values that aren't used and remove them
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',

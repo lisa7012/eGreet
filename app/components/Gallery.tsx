@@ -33,11 +33,10 @@ const Gallery = ({ photosResults }: GalleryProps) => {
           </div>
           <div className="relative flex flex-row justify-between max-mobile:flex-col max-mobile:gap-2">
             <p className="caption">photo by: {photo.photographer}</p>
-            {/* TODO: check and group styles to remove clutter */}
             {photoSelected === photo.id && (
               <Link
                 href={`/creation/${photo.id}`}
-                className="btn w-next-btn-cl h-next-btn-cl absolute right-0 rounded-next-btn-cl bg-tangerine text-next-btn-cl leading-tight text-white max-mobile:static max-mobile:w-full"
+                className="btn absolute right-0 h-next-btn-cl w-next-btn-cl rounded-next-btn-cl bg-tangerine text-next-btn-cl leading-tight text-white max-mobile:static max-mobile:w-full"
               >
                 next
               </Link>

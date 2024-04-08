@@ -43,7 +43,6 @@ const LandingPage = () => {
             co-workers, anyone! Simply browse for a photo you want from the
             photo gallery, customize your message, and send away!
           </p>
-          {/* TODO: Check styles and group whichever thats needs it to reduce clutter */}
           <Link
             href="/photogallery"
             className="btn h-btn-cl w-landing-btn-cl rounded-md bg-mustard text-btn-cl hover:animate-bounce hover:shadow-lg motion-reduce:animate-bounce max-lg:self-center"

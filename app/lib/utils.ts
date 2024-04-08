@@ -1,15 +1,6 @@
 import { CardCustomization } from '../components/Card';
 import type { PhotosResults } from '../schemas/Photos';
 
-type searchParams = {
-  senderName: string;
-  recipientName: string;
-  fontStyle: string;
-  fontColor: string;
-  backgroundColor: string;
-  message: string;
-};
-
 // function to help grab user's customization values from before clicking "select another photo"
 export const getCustomizationValuesFromLS = (
   key: string,
