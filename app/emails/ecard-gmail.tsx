@@ -83,7 +83,7 @@ const ECardGmail = ({
             <Row className="inline-flex">
               <Column width="33%">
                 <Img
-                  src={`${baseURL}/static/eGreet_logo_gray.png`}
+                  src={`${baseURL}/eGreet_logo_gray.png`}
                   alt="eGreet_logo_gray"
                   width={157}
                   height={73}
