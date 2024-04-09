@@ -29,7 +29,6 @@ const ECardEmail = ({
   cardImgSrc,
   recipientParams,
 }: ECardEmailProps) => {
-  //TODO: to fix when after deploying
   const baseURL =
     process.env.NODE_ENV === 'production'
       ? 'https://eGreet.vercel.app'
@@ -100,7 +99,6 @@ const ECardEmail = ({
                 <Text className="mb-0 pt-0 text-center">
                   Visit eGreet to send free <br />
                   eCards today! &nbsp;©2024&nbsp;|&nbsp;
-                  {/* // TODO: to update when the app is deployed */}
                   <Link
                     href="https://github.com/lisa7012/eGreet"
                     className="text-[#DD415B]"
