@@ -36,7 +36,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
             {photoSelected === photo.id && (
               <Link
                 href={`/creation/${photo.id}`}
-                className="btn hover:bg-tangerine-hover absolute right-0 h-next-btn-cl w-next-btn-cl rounded-next-btn-cl bg-tangerine text-next-btn-cl leading-tight text-white max-mobile:static max-mobile:w-full"
+                className="btn absolute right-0 h-next-btn-cl w-next-btn-cl rounded-next-btn-cl bg-tangerine text-next-btn-cl leading-tight text-white hover:bg-tangerine-hover max-mobile:static max-mobile:w-full"
               >
                 next
               </Link>

@@ -28,7 +28,7 @@ const ECardGmail = ({
 }: ECardEmailProps) => {
   const baseURL =
     process.env.NODE_ENV === 'production'
-      ? 'https://eGreet.vercel.app'
+      ? 'https://egreet.vercel.app'
       : 'http://localhost:3000';
 
   return (
@@ -94,10 +94,10 @@ const ECardGmail = ({
                   Visit eGreet to send free <br />
                   eCards today! &nbsp;©2024&nbsp;|&nbsp;
                   <Link
-                    href="https://github.com/lisa7012/eGreet"
+                    href="https://egreet.vercel.app"
                     className="text-[#DD415B]"
                   >
-                    www.eGreet.vercel.app
+                    www.egreet.vercel.app
                   </Link>
                 </Text>
               </Column>
