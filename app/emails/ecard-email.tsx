@@ -32,7 +32,7 @@ const ECardEmail = ({
   const baseURL =
     process.env.NODE_ENV === 'production'
       ? 'https://egreet.vercel.app'
-      : 'http://localhost:3000';
+      : 'http://localhost:3000/static';
 
   return (
     <Tailwind>
@@ -53,7 +53,7 @@ const ECardEmail = ({
           <Container className="relative overflow-hidden">
             <div className="mt-search-cl">
               <Img
-                src={`${baseURL}/static/eGreet_logo_color.png`}
+                src={`${baseURL}/eGreet_logo_color.png`}
                 alt="eGreet_logo"
                 width={157}
                 height={73}
