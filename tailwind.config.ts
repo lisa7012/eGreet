@@ -22,6 +22,7 @@ const config: Config = {
         'strawberry-hover': '#C73A52',
         'gray-hover': '#C7C5C3',
         'mustard-hover': '#D2A92A',
+        'tangerine-hover': '#CF784E',
       },
       screens: {
         mobile: '480px',

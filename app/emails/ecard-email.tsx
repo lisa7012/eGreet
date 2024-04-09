@@ -88,25 +88,28 @@ const ECardEmail = ({
             </Section>
             <Hr />
             <Row className="inline-flex">
-              <Column>
+              <Column width="33%">
                 <Img
                   src={`${baseURL}/static/eGreet_logo_gray.png`}
                   alt="eGreet_logo_gray"
-                  width={157}
-                  height={73}
+                  width="auto"
+                  height="auto"
                 />
               </Column>
-              <Column align="center">
+              <Column width="33%">
                 <Text className="mb-0 pt-0 text-center">
-                  Visit eGreet to send free eCards today!
-                  <br />
-                  &nbsp;©2024 |&nbsp;
+                  Visit eGreet to send free <br />
+                  eCards today! &nbsp;©2024&nbsp;|&nbsp;
                   {/* // TODO: to update when the app is deployed */}
-                  <Link href="https://github.com/lisa7012/eGreet">
+                  <Link
+                    href="https://github.com/lisa7012/eGreet"
+                    className="text-[#DD415B]"
+                  >
                     www.eGreet.vercel.app
                   </Link>
                 </Text>
               </Column>
+              <Column width="33%">&nbsp;&nbsp;&nbsp;</Column>
             </Row>
           </Container>
         </Body>

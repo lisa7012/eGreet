@@ -4,17 +4,22 @@ import Image from 'next/image';
 const NotFound = () => {
   return (
     <div className="my-auto flex flex-col items-center justify-center">
-      {/* //TODO: fix 404 image */}
-      <div className="h-404-cl w-404-cl self-center">
-        <Image src="/404.svg" width={600} height={245} alt="404" />
+      <div className="flex h-404-cl w-404-cl flex-col justify-end">
+        <Image
+          src="/404.svg"
+          width={600}
+          height={245}
+          alt="404"
+          className="mb-2.5"
+        />
       </div>
       <div className="flex flex-col items-center gap-sent-cl">
-        <h2 className="self-center text-center text-xl font-medium">
+        <h2 className="self-center text-center text-sent-cl font-medium">
           We could not find the page you were looking for.
         </h2>
         <Link
           href="/"
-          className="btn hover:bg-strawberry-hover h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white"
+          className="btn h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white hover:bg-strawberry-hover"
         >
           return to home page
         </Link>

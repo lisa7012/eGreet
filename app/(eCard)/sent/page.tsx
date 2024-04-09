@@ -23,7 +23,7 @@ const CardSentPage = () => {
         />
         <Link
           href="/photogallery"
-          className="btn hover:bg-strawberry-hover h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md"
+          className="btn h-btn-cl w-btn-cl rounded-md bg-strawberry-600 text-btn-cl text-white shadow-md hover:bg-strawberry-hover"
         >
           send another card
         </Link>
