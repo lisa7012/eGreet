@@ -1,4 +1,4 @@
-// Part of Creation client bundle
+'use client';
 
 import ColorPicker from './ColorPicker';
 import { Dispatch, SetStateAction, useEffect, MouseEvent } from 'react';
@@ -86,7 +86,7 @@ const Form = ({
         trigger(fieldsToValidate);
       }
     }
-  }, []);
+  });
 
   const handleOnSubmitForm: SubmitHandler<FormInputs> = (data: FormInputs) => {
     convertToPng();
@@ -104,6 +104,18 @@ const Form = ({
 
     sendEmail(data, cardCustomization);
 
+    if (localStorage.getItem('userFormData')) {
+      localStorage.removeItem('userFormData');
+    }
+
+    if (localStorage.getItem('userCustomizationValues')) {
+      localStorage.removeItem('userCustomizationValues');
+    }
+
+    if (localStorage.getItem('cardImgSrc')) {
+      localStorage.removeItem('cardImgSrc');
+    }
+
     router.push('/sent');
   };
 
@@ -114,7 +126,7 @@ const Form = ({
     >
       <div className="flex gap-input-field-cl">
         <div className="input-field relative w-sm-input-cl">
-          <label className="text-label-cl font-normal">
+          <label htmlFor="senderName" className="text-label-cl font-normal">
             Your Name
             <p className="inline-block text-label-cl font-normal text-strawberry-600">
               *
@@ -134,7 +146,7 @@ const Form = ({
           )}
         </div>
         <div className="input-field relative w-sm-input-cl">
-          <label className="text-label-cl font-normal">
+          <label htmlFor="recipientName" className="text-label-cl font-normal">
             Recipient&apos;s Name
             <p className="inline-block text-label-cl font-normal text-strawberry-600">
               *
@@ -155,7 +167,7 @@ const Form = ({
         </div>
       </div>
       <div className="input-field relative">
-        <label className="text-label-cl font-normal">
+        <label htmlFor="recipientEmail" className="text-label-cl font-normal">
           Recipient&apos;s Email
           <p className="inline-block text-label-cl font-normal text-strawberry-600">
             *
@@ -194,7 +206,7 @@ const Form = ({
       </div>
       <div className="flex gap-input-field-cl">
         <div className="input-field w-sm-input-cl">
-          <label htmlFor="font" className="text-label-cl font-normal">
+          <label htmlFor="fontStyle" className="text-label-cl font-normal">
             Font
           </label>
           <select
@@ -210,12 +222,16 @@ const Form = ({
           </select>
         </div>
         <div className="input-field w-sm-input-cl">
-          <label className="text-label-cl font-normal">Font Color</label>
+          <label htmlFor="fontColor" className="text-label-cl font-normal">
+            Font Color
+          </label>
           <ColorPicker color={fontColor} setColor={setFontColor} />
         </div>
       </div>
       <div className="input-field w-sm-input-cl">
-        <label className="text-label-cl font-normal">Background Color</label>
+        <label htmlFor="backgroundColor" className="text-label-cl font-normal">
+          Background Color
+        </label>
         <ColorPicker color={backgroundColor} setColor={setBackgroundColor} />
       </div>
       <div className="mt-creation-btn-cl flex w-full gap-creation-btn-cl max-md:flex-wrap">

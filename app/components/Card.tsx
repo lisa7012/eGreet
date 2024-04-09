@@ -1,4 +1,4 @@
-// Part of Creation client bundle
+'use client';
 
 import Image from 'next/image';
 import type { Photo } from '../schemas/Photos';
