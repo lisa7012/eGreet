@@ -6,9 +6,10 @@ import { useClickOutside } from 'xooks';
 type ColorPickerProps = {
   color: string;
   setColor: Dispatch<SetStateAction<string>>;
+  id: string;
 };
 
-const ColorPicker = ({ color, setColor }: ColorPickerProps) => {
+const ColorPicker = ({ color, setColor, id }: ColorPickerProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
@@ -31,13 +32,14 @@ const ColorPicker = ({ color, setColor }: ColorPickerProps) => {
         <div className="my-auto flex w-[80%] flex-nowrap">
           <p className="inline-block">#</p>
           <HexColorInput
+            id={id}
             color={color}
             onChange={setColor}
             className="bg-transparent uppercase outline-none"
           />
         </div>
       </div>
-      {isOpen && <HexColorPicker color={color} onChange={setColor} />}
+      {isOpen && <HexColorPicker id={id} color={color} onChange={setColor} />}
     </div>
   );
 };

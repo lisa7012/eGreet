@@ -1,4 +1,4 @@
-'use client';
+// Part of Creation client bundle
 
 import ColorPicker from './ColorPicker';
 import { Dispatch, SetStateAction, useEffect, MouseEvent } from 'react';
@@ -53,7 +53,7 @@ const Form = ({
   useFormPersist('userFormData', {
     watch,
     setValue,
-    storage: localStorage,
+    storage: typeof window !== 'undefined' ? localStorage : undefined,
   });
 
   const router = useRouter();
@@ -86,7 +86,7 @@ const Form = ({
         trigger(fieldsToValidate);
       }
     }
-  });
+  }, [getValues, trigger]);
 
   const handleOnSubmitForm: SubmitHandler<FormInputs> = (data: FormInputs) => {
     convertToPng();
@@ -103,18 +103,6 @@ const Form = ({
     };
 
     sendEmail(data, cardCustomization);
-
-    if (localStorage.getItem('userFormData')) {
-      localStorage.removeItem('userFormData');
-    }
-
-    if (localStorage.getItem('userCustomizationValues')) {
-      localStorage.removeItem('userCustomizationValues');
-    }
-
-    if (localStorage.getItem('cardImgSrc')) {
-      localStorage.removeItem('cardImgSrc');
-    }
 
     router.push('/sent');
   };
@@ -133,6 +121,7 @@ const Form = ({
             </p>
           </label>
           <input
+            id="senderName"
             type="text"
             className="input h-input-cl pl-input-cl placeholder-shown:truncate"
             placeholder="Please enter your name"
@@ -153,6 +142,7 @@ const Form = ({
             </p>
           </label>
           <input
+            id="recipientName"
             type="text"
             className="input h-input-cl pl-input-cl placeholder-shown:truncate"
             placeholder="Please enter the recipient's name"
@@ -174,6 +164,7 @@ const Form = ({
           </p>
         </label>
         <input
+          id="recipientEmail"
           type="text"
           className="input h-input-cl pl-input-cl"
           placeholder="Please enter the recipient's email"
@@ -194,6 +185,7 @@ const Form = ({
           </p>
         </label>
         <textarea
+          id="message"
           className="input h-txt-area-cl pl-input-cl pt-input-cl"
           placeholder="Please write your message"
           required
@@ -210,6 +202,7 @@ const Form = ({
             Font
           </label>
           <select
+            id="fontStyle"
             className="input h-input-cl cursor-pointer appearance-none bg-[url('/arrow_down.svg')] bg-clip-padding bg-[97%_50%] bg-no-repeat px-input-cl"
             value={fontStyle}
             onChange={(e) => setFontStyle(e.target.value)}
@@ -225,14 +218,22 @@ const Form = ({
           <label htmlFor="fontColor" className="text-label-cl font-normal">
             Font Color
           </label>
-          <ColorPicker color={fontColor} setColor={setFontColor} />
+          <ColorPicker
+            id="fontColor"
+            color={fontColor}
+            setColor={setFontColor}
+          />
         </div>
       </div>
       <div className="input-field w-sm-input-cl">
         <label htmlFor="backgroundColor" className="text-label-cl font-normal">
           Background Color
         </label>
-        <ColorPicker color={backgroundColor} setColor={setBackgroundColor} />
+        <ColorPicker
+          id="backgroundColor"
+          color={backgroundColor}
+          setColor={setBackgroundColor}
+        />
       </div>
       <div className="mt-creation-btn-cl flex w-full gap-creation-btn-cl max-md:flex-wrap">
         <button
