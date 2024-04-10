@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import useFormPersist from 'react-hook-form-persist';
 import { FormDataSchema, FormInputs } from '../schemas/FormData';
-import { setCustomizationValuesToLS } from '../lib/utils';
+import { setCustomizationValuesToSS } from '../lib/utils';
 import { sendEmail } from '../actions';
 import { Photo } from '../schemas/Photos';
 import { CardCustomization } from './Card';
@@ -53,14 +53,14 @@ const Form = ({
   useFormPersist('userFormData', {
     watch,
     setValue,
-    storage: typeof window !== 'undefined' ? localStorage : undefined,
+    storage: typeof window !== 'undefined' ? sessionStorage : undefined,
   });
 
   const router = useRouter();
 
   const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setCustomizationValuesToLS('userCustomizationValues', {
+    setCustomizationValuesToSS('userCustomizationValues', {
       fontStyle: fontStyle,
       fontColor: fontColor,
       backgroundColor: backgroundColor,
@@ -71,7 +71,7 @@ const Form = ({
 
   useEffect(() => {
     // revalidating fields when the user comes back from selecting another photo and they have some fields already populated
-    if (localStorage.getItem('userFormData')) {
+    if (sessionStorage.getItem('userFormData')) {
       const fieldsToValidate: registeredFields[] = [];
       const fieldValues = getValues();
 
@@ -93,7 +93,7 @@ const Form = ({
 
     const cardCustomization = {
       photoId: photoResult.id,
-      cardImgSrc: localStorage.getItem('cardImgSrc') ?? '',
+      cardImgSrc: sessionStorage.getItem('cardImgSrc') ?? '',
       customizationValues: {
         fontStyle: btoa(fontStyle),
         fontColor: btoa(fontColor),

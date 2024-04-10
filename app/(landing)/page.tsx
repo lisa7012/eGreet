@@ -39,7 +39,7 @@ const LandingPage = () => {
         <div className="flex w-[785px] flex-col gap-7 self-center max-lg:gap-intro-cl">
           <p className="self-center text-3xl font-normal text-white max-xl:text-intro-cl max-lg:text-center max-lg:leading-intro-cl">
             Need to send a card, but don&apos;t have time to run to the store?
-            At eGreet, you may send free e-cards to your friends, family,
+            At eGreet, you may send free eCards to your friends, family,
             co-workers, anyone! Simply browse for a photo you want from the
             photo gallery, customize your message, and send away!
           </p>

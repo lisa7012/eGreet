@@ -11,16 +11,16 @@ const PreviousPageButton = ({ colorStyle, text }: PreviousPageButtonProps) => {
 
   // When this button renders on the sent page previous values will be removed
   if (typeof window !== 'undefined') {
-    if (localStorage.getItem('userFormData')) {
-      localStorage.removeItem('userFormData');
+    if (sessionStorage.getItem('userFormData')) {
+      sessionStorage.removeItem('userFormData');
     }
 
-    if (localStorage.getItem('userCustomizationValues')) {
-      localStorage.removeItem('userCustomizationValues');
+    if (sessionStorage.getItem('userCustomizationValues')) {
+      sessionStorage.removeItem('userCustomizationValues');
     }
 
-    if (localStorage.getItem('cardImgSrc')) {
-      localStorage.removeItem('cardImgSrc');
+    if (sessionStorage.getItem('cardImgSrc')) {
+      sessionStorage.removeItem('cardImgSrc');
     }
   }
 

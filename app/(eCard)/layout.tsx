@@ -25,7 +25,11 @@ export default function RootLayout({
         <main className="mx-0 my-auto flex h-full flex-col gap-search-cl">
           <Logo src="/eGreet_logo_color.svg" alt="eGreet Logo" />
           {children}
-          <Footer textColor="text-black" linkColor="text-strawberry-600" />
+          <Footer
+            textColor="text-black"
+            linkColor="text-strawberry-600"
+            hoverColor="text-strawberry-hover"
+          />
         </main>
       </body>
     </html>

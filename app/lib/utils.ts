@@ -2,25 +2,25 @@ import { CardCustomization } from '../components/Card';
 import type { PhotosResults } from '../schemas/Photos';
 
 // function to help grab user's customization values from before clicking "select another photo"
-export const getCustomizationValuesFromLS = (
+export const getCustomizationValuesFromSS = (
   key: string,
   initialValues: CardCustomization,
 ): CardCustomization => {
   try {
-    const values = window.localStorage.getItem(key);
+    const values = window.sessionStorage.getItem(key);
     return values ? JSON.parse(values) : initialValues;
   } catch (e) {
     return initialValues;
   }
 };
 
-// function to save user's customization values to local storage when clicking "select another photo"
-export const setCustomizationValuesToLS = (
+// function to save user's customization values to session storage when clicking "select another photo"
+export const setCustomizationValuesToSS = (
   key: string,
   values: CardCustomization,
 ) => {
   try {
-    window.localStorage.setItem(key, JSON.stringify(values));
+    window.sessionStorage.setItem(key, JSON.stringify(values));
   } catch (e) {
     console.log(e);
   }

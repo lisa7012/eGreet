@@ -23,7 +23,11 @@ export default function RootLayout({
         <main className="relative z-0 mx-0 my-auto flex h-full flex-col py-0 max-sm:gap-2.5">
           <Logo src="/eGreet_logo_gray.svg" alt="eGreet Gray Logo" />
           {children}
-          <Footer textColor="text-white" textOpacity="opacity-70" />
+          <Footer
+            textColor="text-white"
+            textOpacity="opacity-70"
+            hoverColor="text-strawberry-hover"
+          />
         </main>
       </body>
     </html>

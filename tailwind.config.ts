@@ -51,6 +51,7 @@ const config: Config = {
         'sent-cl': 'clamp(1.125rem, 0.8519rem + 1.1650vw, 2.25rem)',
         'recipient-name-cl': 'clamp(2.25rem, 1.7039rem + 2.3301vw, 4.5rem)',
         'recipient-sender-cl': 'clamp(1rem, 0.8180rem + 0.7767vw, 1.75rem)',
+        'copyright-cl': 'clamp(0.5rem, 0.4240rem + 0.3241vw, 0.813rem)',
       },
       lineHeight: {
         'intro-cl': 'clamp(1.313rem, 0.7716rem + 2.3100vw, 2.25rem)',
