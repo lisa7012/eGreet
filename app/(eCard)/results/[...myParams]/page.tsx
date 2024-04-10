@@ -1,5 +1,5 @@
 import { fetchPhotos } from '../../../lib/api';
-import { getPrevNextPages } from '../../../lib/utils';
+import { decodeQuery, getPrevNextPages } from '../../../lib/utils';
 import type { PhotosResults } from '../../../schemas/Photos';
 
 // components
@@ -18,14 +18,14 @@ export const generateMetadata = ({
 }: SearchResultsProps) => {
   const searchQuery = myParams?.[0] ?? 'curated';
   const page = myParams?.[1] ?? '1';
-  let decodedQuery;
+  // let decodedQuery;
 
-  decodedQuery = searchQuery.includes('%20')
-    ? decodeURIComponent(searchQuery)
-    : searchQuery;
+  // decodedQuery = searchQuery.includes('%20')
+  //   ? decodeURIComponent(searchQuery)
+  //   : searchQuery;
 
   return {
-    title: `${decodedQuery} - Page ${page}`,
+    title: `${decodeQuery(searchQuery)} - Page ${page}`,
   };
 };
 

@@ -83,10 +83,14 @@ const Form = ({
       }
 
       if (fieldsToValidate.length > 0) {
+        // Setting form to isDirty because it wasn't setting itself although fields were populated on prod
+        setValue(fieldsToValidate[0], fieldValues[fieldsToValidate[0]], {
+          shouldDirty: true,
+        });
         trigger(fieldsToValidate);
       }
     }
-  }, [getValues, trigger]);
+  }, [photoResult.id]);
 
   const handleOnSubmitForm: SubmitHandler<FormInputs> = (data: FormInputs) => {
     convertToPng();
@@ -240,7 +244,7 @@ const Form = ({
           className="btn h-btn-cl w-full rounded-md bg-light-gray text-btn-cl text-black hover:bg-gray-hover"
           onClick={handleOnClick}
         >
-          select another photo
+          change current photo
         </button>
         <button
           type="submit"

@@ -57,3 +57,9 @@ export const getPrevNextPages = (photoResults: PhotosResults | undefined) => {
 
   return { prevPage, nextPage };
 };
+
+export const decodeQuery = (searchQuery: string) => {
+  return searchQuery.includes('%20')
+    ? decodeURIComponent(searchQuery)
+    : searchQuery;
+};

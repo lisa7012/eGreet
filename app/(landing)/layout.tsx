@@ -26,7 +26,7 @@ export default function RootLayout({
           <Footer
             textColor="text-white"
             textOpacity="opacity-70"
-            hoverColor="text-strawberry-hover"
+            hoverColor="hover:text-strawberry-hover"
           />
         </main>
       </body>

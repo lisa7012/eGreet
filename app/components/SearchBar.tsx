@@ -1,12 +1,19 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, FormEvent, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
+import { decodeQuery } from '../lib/utils';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
+  const params = useParams();
+
+  useEffect(() => {
+    const queryParam = params.myParams?.[0] ?? 'curated';
+    queryParam !== 'curated' ? setSearchQuery(decodeQuery(queryParam)) : '';
+  }, []);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

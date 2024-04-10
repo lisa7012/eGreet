@@ -18,6 +18,7 @@ const Footer = ({
     textColor +
     ` ` +
     textOpacity;
+
   return (
     <footer className="pt-auto flex justify-center pb-10">
       <p className={style}>
@@ -26,7 +27,7 @@ const Footer = ({
         <Link
           href="https://www.linkedin.com/in/vict%C3%B3ria-marins-4700b01ba?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BHXdYazhwSkC4nyDPNx3pOg%3D%3D"
           target="_blank"
-          className={`underline ${linkColor} hover:${hoverColor}`}
+          className={`underline ${linkColor} ${hoverColor}`}
         >
           Victoria Marins
         </Link>
@@ -34,7 +35,7 @@ const Footer = ({
         <Link
           href="https://lisa7012.github.io/portfolio_v2/"
           target="_blank"
-          className={`underline ${linkColor} hover:${hoverColor}`}
+          className={`underline ${linkColor} ${hoverColor}`}
         >
           Lisa Duong
         </Link>
