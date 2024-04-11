@@ -55,7 +55,7 @@ const Creation = ({ photoResult }: CardViewProps) => {
   };
 
   return (
-    <div className="my-auto flex justify-center gap-creation-cl max-md:flex-wrap">
+    <div className="m-auto flex justify-center gap-creation-cl max-md:flex-wrap">
       <Card
         photoResult={photoResult}
         customizationValues={customizationValues}

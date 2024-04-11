@@ -4,11 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  touch-action: pan-x pan-y;
-  height: 100%
-}
-
 .btn {
   @apply inline-flex items-center justify-center text-nowrap text-center font-medium;
 }
@@ -27,17 +22,17 @@
 
 /* // Color picker styling */
 .color-picker .react-colorful {
-  @apply absolute w-react-colorful-cl h-react-colorful-cl;
+  @apply absolute h-react-colorful-cl w-react-colorful-cl;
 }
 
 .color-picker .react-colorful__hue {
-  @apply h-cp-hue-cl
+  @apply h-cp-hue-cl;
 }
 
 .color-picker .react-colorful__saturation-pointer {
-  @apply w-cp-pointer-cl h-cp-pointer-cl;
+  @apply h-cp-pointer-cl w-cp-pointer-cl;
 }
 
 .color-picker .react-colorful__hue-pointer {
-  @apply w-cp-pointer-cl h-cp-pointer-cl;
+  @apply h-cp-pointer-cl w-cp-pointer-cl;
 }

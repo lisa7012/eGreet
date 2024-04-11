@@ -49,8 +49,8 @@ const config: Config = {
         'label-cl': 'clamp(0.813rem, 0.7373rem + 0.3231vw, 1.125rem)',
         'card-msg-cl': 'clamp(0.813rem, 0.7373rem + 0.3231vw, 1.125rem)',
         'sent-cl': 'clamp(1.125rem, 0.8519rem + 1.1650vw, 2.25rem)',
-        'recipient-name-cl': 'clamp(2.25rem, 1.7039rem + 2.3301vw, 4.5rem)',
-        'recipient-sender-cl': 'clamp(1rem, 0.8180rem + 0.7767vw, 1.75rem)',
+        'recipient-name-cl': 'clamp(2rem, 1.7573rem + 1.0356vw, 3rem)',
+        'recipient-sender-cl': 'clamp(1.25rem, 1.1893rem + 0.2589vw, 1.5rem)',
         'copyright-cl': 'clamp(0.5rem, 0.4240rem + 0.3241vw, 0.813rem)',
       },
       lineHeight: {
@@ -58,7 +58,6 @@ const config: Config = {
       },
       padding: {
         'content-cl': 'clamp(1.875rem, 1.1527rem + 3.0817vw, 3.125rem)',
-        // 'gallery-cl': 'clamp(3rem, -0.2464rem + 13.8511vw, 16.375rem)',
         'gallery-cl': 'clamp(1.875rem, -1.6444rem + 15.0162vw, 16.375rem)',
         'input-cl': 'clamp(0.313rem, 0.2373rem + 0.3231vw, 0.625rem)',
       },
@@ -91,7 +90,7 @@ const config: Config = {
         'btn-cl': 'clamp(2.188rem, 1.9606rem + 0.9704vw, 3.125rem)',
         'photo-cl': 'clamp(9.25rem, 6.6408rem + 11.1327vw, 20rem)',
         'input-cl': 'clamp(1.875rem, 1.7233rem + 0.6472vw, 2.5rem)',
-        'next-btn-cl': 'clamp(1.25rem, 1.0983rem + 0.6472vw, 1.875rem)',
+        'next-btn-cl': 'clamp(1.375rem, 1.2536rem + 0.5178vw, 1.875rem)',
         'card-cl': 'clamp(27.188rem, 22.1819rem + 21.3592vw, 47.813rem)',
         'card-pic-cl': 'clamp(13.375rem, 10.9325rem + 10.4212vw, 23.438rem)',
         'card-msg-cl': 'clamp(13.75rem, 11.1711rem + 11.0032vw, 24.375rem)',
@@ -128,7 +127,7 @@ const config: Config = {
         'card-cl': 'clamp(0.094rem, 0.0865rem + 0.0321vw, 0.125rem)',
       },
       maxWidth: {
-        'recipient-cl': 'clamp(19.688rem, 16.0472rem + 15.5340vw, 34.688rem)',
+        'recipient-cl': 'clamp(21.875rem, 19.5995rem + 9.7087vw, 31.25rem)',
       },
     },
   },
