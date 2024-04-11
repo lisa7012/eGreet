@@ -88,7 +88,7 @@ const config: Config = {
       height: {
         'logo-cl': 'clamp(2.063rem, 1.2438rem + 3.4951vw, 5.438rem)',
         'btn-cl': 'clamp(2.188rem, 1.9606rem + 0.9704vw, 3.125rem)',
-        'photo-cl': 'clamp(9.25rem, 6.6408rem + 11.1327vw, 20rem)',
+        'photo-cl': 'clamp(9.219rem, 6.6023rem + 11.1648vw, 20rem)',
         'input-cl': 'clamp(1.875rem, 1.7233rem + 0.6472vw, 2.5rem)',
         'next-btn-cl': 'clamp(1.375rem, 1.2536rem + 0.5178vw, 1.875rem)',
         'card-cl': 'clamp(27.188rem, 22.1819rem + 21.3592vw, 47.813rem)',

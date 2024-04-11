@@ -27,7 +27,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
               src={photo.src.large}
               alt={photo.alt}
               fill={true}
-              sizes="(min-width: 2220px) calc(33.33vw - 201px), (min-width: 780px) calc(25.92vw - 38px), (min-width: 520px) calc(36.25vw - 17px), calc(41.5vw - 43px)"
+              sizes="(min-width: 2180px) calc(33.41vw - 203px), (min-width: 780px) 24.35vw, (min-width: 540px) calc(34.55vw + 17px), calc(39.55vw - 9px)"
               className="cursor-pointer object-cover"
             />
           </div>

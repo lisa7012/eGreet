@@ -21,7 +21,7 @@ const Card = ({ photoResult, customizationValues, cardRef }: CardProps) => {
     customizationValues;
   return (
     <div
-      className=" my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#DCDBD9]"
+      className="my-auto h-card-cl w-card-cl overflow-hidden rounded-[20px] border-card-cl border-[#DCDBD9]"
       ref={cardRef}
     >
       <div className="relative h-card-pic-cl">
@@ -29,7 +29,7 @@ const Card = ({ photoResult, customizationValues, cardRef }: CardProps) => {
           src={photoResult.src.large}
           alt={photoResult.alt}
           fill={true}
-          sizes="(min-width: 2100px) 549px, calc(16.01vw + 216px)"
+          sizes="(min-width: 2140px) 552px, (min-width: 940px) calc(12.88vw + 279px), (min-width: 780px) calc(51.43vw - 77px), calc(16.09vw + 250px)"
           className="object-cover"
         />
       </div>
