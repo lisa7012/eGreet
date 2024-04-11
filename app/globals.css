@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  touch-action: pan-x pan-y;
+  height: 100%
+}
+
 .btn {
   @apply inline-flex items-center justify-center text-nowrap text-center font-medium;
 }
@@ -36,25 +41,3 @@
 .color-picker .react-colorful__hue-pointer {
   @apply w-cp-pointer-cl h-cp-pointer-cl;
 }
-
-/* Scroll Styling */
-/* ::-webkit-scrollbar {
-  width: 9px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 9px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    135deg,
-    rgba(244, 108, 131, 1) 0%,
-    rgba(221, 65, 91, 1) 32%,
-    rgba(228, 134, 89, 1) 80%
-  );
-  border: 1px solid transparent;
-  border-radius: 9px;
-  background-clip: content-box;
-} */

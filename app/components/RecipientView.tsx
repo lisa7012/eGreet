@@ -42,7 +42,7 @@ const RecipientView = ({ photoResult }: RecipientViewProps) => {
 
   return (
     <div className="my-auto flex flex-col items-center gap-sent-cl">
-      <div>
+      <div className="max-w-recipient-cl">
         <h1 className="text-recipient-name-cl leading-none">
           Hi {recipientName},
         </h1>

@@ -82,7 +82,8 @@ const config: Config = {
         'react-colorful-cl': 'clamp(7.813rem, 6.6754rem + 4.8539vw, 12.5rem)',
         'cp-pointer-cl': 'clamp(1.125rem, 0.9733rem + 0.6472vw, 1.75rem)',
         'page-icon-cl': 'clamp(5.438rem, 3.9060rem + 6.5367vw, 11.75rem)',
-        'btn-cl': 'clamp(16.875rem, 16.6473rem + 0.9714vw, 17.813rem)',
+        'btn-cl':
+          'calc(37.501rem - clamp(17.813rem, 17.3579rem + 1.9417vw, 19.688rem))',
         '404-cl': 'clamp(15rem, 10.2973rem + 20.0647vw, 34.375rem)',
       },
       height: {
@@ -90,7 +91,7 @@ const config: Config = {
         'btn-cl': 'clamp(2.188rem, 1.9606rem + 0.9704vw, 3.125rem)',
         'photo-cl': 'clamp(9.25rem, 6.6408rem + 11.1327vw, 20rem)',
         'input-cl': 'clamp(1.875rem, 1.7233rem + 0.6472vw, 2.5rem)',
-        'next-btn-cl': 'clamp(1.094rem, 0.8337rem + 0.8678vw, 1.875rem)',
+        'next-btn-cl': 'clamp(1.25rem, 1.0983rem + 0.6472vw, 1.875rem)',
         'card-cl': 'clamp(27.188rem, 22.1819rem + 21.3592vw, 47.813rem)',
         'card-pic-cl': 'clamp(13.375rem, 10.9325rem + 10.4212vw, 23.438rem)',
         'card-msg-cl': 'clamp(13.75rem, 11.1711rem + 11.0032vw, 24.375rem)',
@@ -125,6 +126,9 @@ const config: Config = {
       borderWidth: {
         'photo-cl': 'clamp(0.188rem, 0.1730rem + 0.0642vw, 0.25rem)',
         'card-cl': 'clamp(0.094rem, 0.0865rem + 0.0321vw, 0.125rem)',
+      },
+      maxWidth: {
+        'recipient-cl': 'clamp(19.688rem, 16.0472rem + 15.5340vw, 34.688rem)',
       },
     },
   },

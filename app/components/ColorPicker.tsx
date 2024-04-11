@@ -21,7 +21,7 @@ const ColorPicker = ({ color, setColor, id }: ColorPickerProps) => {
   };
 
   return (
-    <div className="color-picker relative" ref={ref}>
+    <div className="color-picker relative z-1" ref={ref}>
       <div className="input flex h-input-cl w-sm-input-cl gap-color-p-cl px-input-cl">
         <button
           type="button"
