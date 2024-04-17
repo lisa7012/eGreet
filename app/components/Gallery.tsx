@@ -24,6 +24,7 @@ const Gallery = ({ photosResults }: GalleryProps) => {
             }}
           >
             <Image
+              unoptimized
               src={photo.src.large}
               alt={photo.alt}
               fill={true}

@@ -9,6 +9,8 @@ const nextConfig = {
         pathname: '/photos/**',
       },
     ],
+    // TODO: may need to disable image optimization completely due to reaching limit
+    // unoptimized: true,
   },
 };
 
