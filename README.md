@@ -1,4 +1,4 @@
-# eGreet
+# ✨eGreet
 
 <p align="center">
   <img src="https://github.com/lisa7012/eGreet/assets/71042901/e703300c-87d6-4ab6-a09b-05d7e7031341" alt="Portfolio preview"/>
@@ -14,6 +14,8 @@ eGreet is a web application that allows users to customize and send free eCards 
   <img src="https://github.com/lisa7012/eGreet/assets/71042901/dbb9e3a0-9239-4d98-a04a-dfcba43e9464" width="800" alt="eGreet"/>
 </p>  
 <p>&nbsp</p>
+
+Designed by [vchavesmarins](https://github.com/vchavesmarins).
 
 ## ⚡ Techs
 
