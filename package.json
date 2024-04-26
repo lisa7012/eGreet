@@ -15,7 +15,7 @@
     "@react-email/components": "^0.0.16",
     "@react-email/render": "^0.0.12",
     "envalid": "^8.0.0",
-    "next": "14.1.0",
+    "next": "14.2.3",
     "nodemailer": "^6.9.13",
     "react": "^18",
     "react-colorful": "^5.6.1",
