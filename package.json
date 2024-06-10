@@ -10,7 +10,7 @@
     "email": "email dev --dir app/emails"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.4",
+    "@hookform/resolvers": "^3.6.0",
     "@hugocxl/react-to-image": "^0.0.9",
     "@react-email/components": "^0.0.19",
     "@react-email/render": "^0.0.12",
